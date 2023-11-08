@@ -26,7 +26,8 @@ Inconsistent branch, file, and variable names can affect the readability of code
   - Ex. myName
  
 - Function format
-```const Footer = () => {
+```
+const Footer = () => {
     return (
         <div className="text-lg">
             <div className="text-slate-900 text-xl ">鴻日興科技有限公司</div>
@@ -34,4 +35,5 @@ Inconsistent branch, file, and variable names can affect the readability of code
         </div>
     )
 }
-export default Footer```
+export default Footer
+```
