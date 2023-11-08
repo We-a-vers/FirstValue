@@ -2,7 +2,7 @@
 
 ## Context and Problem Statement
 
-Inconsistent branch, file, and variable names can affect the readability of code. In order to keep our code organized and allow every member to understand others' code easily, we will follow a standard naming convention for files/components, variables, and branches.
+Inconsistent branch, file, and variable names can affect the readability of code. In order to keep our code organized and allow every member to understand others' code easily, we will follow a standard naming convention for branches, files/components, and variables.
 
 ## Considered Options
 
