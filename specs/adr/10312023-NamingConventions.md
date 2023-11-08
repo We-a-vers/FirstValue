@@ -24,3 +24,14 @@ Inconsistent branch, file, and variable names can affect the readability of code
   - CamelCase: capitalize the first letter of every word except the first word; no spaces/symbols
   - https://www.techtarget.com/whatis/definition/CamelCase#:~:text=CamelCase%20is%20a%20way%20to,humps%20on%20a%20camel's%20back.
   - Ex. myName
+ 
+- Function format
+`const Footer = () => {
+    return (
+        <div className="text-lg">
+            <div className="text-slate-900 text-xl ">鴻日興科技有限公司</div>
+            <div className="text"></div>
+        </div>
+    )
+}
+export default Footer`
