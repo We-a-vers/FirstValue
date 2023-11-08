@@ -15,7 +15,6 @@ Follow these steps to set up and start your React project with Vite:
 1. **Create a New Project**: Open your terminal and run the following command to create a new React project using Vite. Replace `<project-name>` with the desired name for your project:
 
     ```shell
-    npm init @vitejs/app <project-name> --template react
     cd <project-name>
     ```
 
