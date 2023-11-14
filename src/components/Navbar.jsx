@@ -10,7 +10,7 @@ function Navbar() {
   const ulStyle = {
     listStyle: 'none',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
   };
 
   const liStyle = {
