@@ -10,7 +10,7 @@ function Navbar() {
   const ulStyle = {
     listStyle: 'none',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
   };
 
   const liStyle = {
@@ -19,11 +19,13 @@ function Navbar() {
 
   return (
     <div style={navStyle} className="navbar">
+      <div class="text-base font-medium font-['Inter'] leading-none">鴻日興科技 First Value Technology Co</div>
       <ul style={ulStyle} className="nav-list">
         <li style={liStyle}>Home</li>
         <li style={liStyle}>About</li>
         <li style={liStyle}>Services</li>
         <li style={liStyle}>Contact</li>
+        <li style={liStyle}>中文 </li>
       </ul>
     </div>
     // <h1>hello world</h1>
