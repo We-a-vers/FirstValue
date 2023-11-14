@@ -2,8 +2,8 @@ import React from 'react';
 
 function Navbar() {
   const navStyle = {
-    background: '#333',
-    color: '#fff',
+    background: '#7B8EA6',
+    color: '#FFFFFF',
     padding: '10px',
   };
 
