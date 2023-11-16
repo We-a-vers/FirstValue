@@ -1,3 +1,5 @@
+import ValueCard from "./components/ValueCard";
+
 const Home = () => {
   return <>Home</>;
 };

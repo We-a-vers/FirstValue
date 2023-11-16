@@ -1,12 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import ValueIcon from './HomeAssets/Value.jsx'
+import { ValueIcon } from './HomeAssets/Value.jsx'
 
 // First Approach
 const ValueCard = () => {
     return (
-        <div className="flex w-72 gap-2.5 
-                        desktop:flex-col desktop:gap-valueGap desktop:w-valueWidth desktop:h-valueHeight">
+        <div className="flex w-72 gap-2.5 justify-center items-center desktop:flex-col desktop:gap-valueGap desktop:w-valueWidth desktop:h-valueHeight">
             <div className="w-9 h-9 desktop:w-24 desktop:h-24">
                 <ValueIcon />
             </div>
