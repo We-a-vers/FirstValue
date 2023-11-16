@@ -5,7 +5,19 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing:{
+        'valueGap':'1.3125rem',
+        'valueHeight': '12.1875rem',
+        'valueWidth': '21.6875rem',
+        'valueWordsHeight': '5.3125rem'
+      },
+      screens: {
+        'desktop': '1440px',
+        'tablet': '768px',
+        'smartphone': '360px',
+      }
+    },
   },
   plugins: [],
 }
