@@ -1,6 +1,11 @@
+import Header from "./components/Header";
+
 const ServiceTech = () => {
     return (
-        <>ServiceTech</>
+        <>
+            <Header/ >
+        </>
+
     )
 }
 
