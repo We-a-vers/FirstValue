@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const Navbar = () => {
+  
   const navStyle = {
     background: '#7B8EA6',
     color: '#FFFFFF',
