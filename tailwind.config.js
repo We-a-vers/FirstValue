@@ -5,7 +5,39 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing:{
+        'valueGap':'1.3125rem',
+        'valuePadPhone': '1.88rem',
+        'valuePadDesktop': '6.5rem',
+        'valueHeight': '12.1875rem',
+        'valueWidth': '21.6875rem',
+        'valueWordsHeight': '5.3125rem',
+        'valueSecWidth': '18.75rem',
+        'valueTabletWordsWidth': '26.1875rem',
+        'valueTabletWidth':'29.375rem'
+      },
+      screens: {
+        'desktop': '1440px',
+        'tablet': '768px',
+        'smartphone': '360px',
+      },
+      colors: {
+        'light': '#e6ecf1',
+        'light-hover': '#d9e2ea',
+        'light-active': '#b1c3d4',
+        'normal': '#023e73',
+        'normal-hover': '#02325c',
+        'dark': '#022f56',
+        'dark-hover': '#012545',
+        'dark-active': '#011c34',
+        'darker': '#011628'
+      },
+      fontFamily: {
+        'chi-serif': ['Noto Serif TC'],
+        'chi-sans': ['Noto Sans TC'],
+      }
+    },
   },
   plugins: [],
 }
