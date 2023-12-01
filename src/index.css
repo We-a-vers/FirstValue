@@ -3,3 +3,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --first-value-gradient: linear-gradient(271deg, #19335A 0.22%, #8FBAEB 116.36%);
+    --foundation-blue-dark-hover: #012545;
+    --natural-color-gray: #646368;
+    --foundation-blue-normal: #023E73;
+    --natural-color-black: #21272A;
+    --foundation-blue-dark: #022F56;
+    --natural-color-white: #FAFAFA;
+}
+
+@layer base {
+    h1 {
+
+    }
+    h2 {
+
+    }
+    h3 {
+
+    }
+    h4 {
+        
+    }
+}
