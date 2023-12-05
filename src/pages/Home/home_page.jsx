@@ -1,7 +1,7 @@
-import ValueImg from './HomeComponents/HomeAssets/value.svg';
-import IdeaImg from './HomeComponents/HomeAssets/idea.svg';
-import DealImg from './HomeComponents/HomeAssets/deal.svg';
-import ValueCard from "./HomeComponents/ValueCard.jsx";
+import ValueImg from '../../assets/home/value.svg';
+import IdeaImg from '../../assets/home/idea.svg';
+import DealImg from '../../assets/home/deal.svg';
+import ValueCard from "./components/ValueCard.jsx";
 
 const data = [
     {
