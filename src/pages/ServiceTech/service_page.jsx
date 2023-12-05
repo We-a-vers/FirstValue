@@ -1,7 +1,5 @@
 const ServiceTech = () => {
-    return (
-        <>ServiceTech</>
-    )
-}
+  return <>ServiceTech</>;
+};
 
 export default ServiceTech;

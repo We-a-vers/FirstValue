@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
   const navStyle = {
@@ -23,21 +23,29 @@ const Navbar = () => {
 
   return (
     <div>
-        <div style={navStyle} className="navbar">
-            <div class="font-medium">鴻日興科技 First Value Technology Co</div>
-            <ul style={ulStyle} className="nav-list">
-                <NavLink to="/"><li style={liStyle}>主頁面</li></NavLink>
-                <NavLink to="about"><li style={liStyle}>關於我們</li></NavLink>
-                <NavLink to="service"><li style={liStyle}>技術</li></NavLink>
-                <li style={liStyle}>服務</li>
-                <li style={liStyle}>聯絡我們</li>
-                <li style={liStyle}>中文 </li>
-            </ul>
-        </div>
-        
-        <main><Outlet/></main>
+      <div style={navStyle} className="navbar">
+        <div className="font-medium">鴻日興科技 First Value Technology Co</div>
+        <ul style={ulStyle} className="nav-list">
+          <NavLink to="/">
+            <li style={liStyle}>主頁面</li>
+          </NavLink>
+          <NavLink to="about">
+            <li style={liStyle}>關於我們</li>
+          </NavLink>
+          <NavLink to="service">
+            <li style={liStyle}>技術</li>
+          </NavLink>
+          <li style={liStyle}>服務</li>
+          <li style={liStyle}>聯絡我們</li>
+          <li style={liStyle}>中文 </li>
+        </ul>
+      </div>
+
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
-}
+};
 
 export default Navbar;
