@@ -1,24 +1,24 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from "react-router-dom";
 
 const Navbar = () => {
   const navStyle = {
-    background: '#7B8EA6',
-    color: '#FFFFFF',
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    background: "#7B8EA6",
+    color: "#FFFFFF",
+    padding: "20px",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   };
 
   const ulStyle = {
-    listStyle: 'none',
-    display: 'flex',
-    justifyContent: 'flex-end',
+    listStyle: "none",
+    display: "flex",
+    justifyContent: "flex-end",
   };
 
   const liStyle = {
-    margin: '0 10px',
+    margin: "0 10px",
   };
 
   return (
