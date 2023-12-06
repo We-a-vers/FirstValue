@@ -1,5 +1,3 @@
-import Timeline from "./components/time_line";
-
 const About = () => {
   const outerFrameStyle = {};
   return (
