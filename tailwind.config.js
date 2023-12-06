@@ -45,6 +45,7 @@ export default {
         'body-text': 'var(--natural-color-black)',
         'navbar-text': 'var(--foundation-blue-dark)',
         'button-text': 'var(--natural-color-white)',
+        'hamburger': 'url("./src/assets/Hamburger.svg")'
       },
       // implementation: 'shadow-button-hover-shadow'
       boxShadow: {
