@@ -8,6 +8,36 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier',
   ],
+  rules: {
+    'block-scoped-var': 'error',
+    eqeqeq: 'error',
+    'no-var': 'error',
+    'prefer-const': 'error',
+    'eol-last': 'error',
+    'prefer-arrow-callback': 'error',
+    'no-trailing-spaces': 'error',
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: [
+      'error',
+      'single',
+      {
+        avoidEscape: true,
+      },
+    ],
+    semi: ['error', 'always'],
+    'no-restricted-properties': [
+      'error',
+      {
+        object: 'describe',
+        property: 'only',
+      },
+      {
+        object: 'it',
+        property: 'only',
+      },
+    ],
+  },
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
