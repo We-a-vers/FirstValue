@@ -5,11 +5,15 @@
 @tailwind utilities;
 
 :root {
-    --first-value-gradient: linear-gradient(271deg, #19335A 0.22%, #8FBAEB 116.36%);
-    --foundation-blue-dark-hover: #012545;
-    --natural-color-gray: #646368;
-    --foundation-blue-normal: #023E73;
-    --natural-color-black: #21272A;
-    --foundation-blue-dark: #022F56;
-    --natural-color-white: #FAFAFA;
+  --first-value-gradient: linear-gradient(
+    271deg,
+    #19335a 0.22%,
+    #8fbaeb 116.36%
+  );
+  --foundation-blue-dark-hover: #012545;
+  --natural-color-gray: #646368;
+  --foundation-blue-normal: #023e73;
+  --natural-color-black: #21272a;
+  --foundation-blue-dark: #022f56;
+  --natural-color-white: #fafafa;
 }
