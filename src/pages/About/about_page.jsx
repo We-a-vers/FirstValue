@@ -1,5 +1,4 @@
 const About = () => {
-  const outerFrameStyle = {};
   return (
     <div>
       <header className="h-60 pl-[30px] py-[53px] bg-gray-50">
