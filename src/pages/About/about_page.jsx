@@ -1,6 +1,11 @@
+import TimeLine from "./components/time_line"
+
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      About
+      <TimeLine />
+    </div>
   )
 }
 
