@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
   
@@ -48,6 +48,6 @@ const Navbar = () => {
         <main><Outlet/></main>
     </div>
   );
-}
+};
 
 export default Navbar;
