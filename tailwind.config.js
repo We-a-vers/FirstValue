@@ -41,7 +41,7 @@ export default {
       // implementation: 'shadow-button-hover'
       boxShadow: {
         'button-hover': '0px 4px 20px 0px rgba(0, 0, 0, 0.10)',
-        'value-card': '0px 4px 40px 0px rgba(34, 63, 101, 0.07);',
+        'value-card': '0px 4px 40px 0px rgba(34, 63, 101, 0.07)',
       },
       // implementation: 'font-chi-serif'
       fontFamily: {

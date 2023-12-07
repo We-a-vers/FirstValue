@@ -39,6 +39,6 @@ const Home = () => {
       {renderCards()}
     </div>
   );
-};
+}
 
 export default Home;
