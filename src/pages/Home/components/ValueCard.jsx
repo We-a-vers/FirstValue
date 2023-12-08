@@ -9,7 +9,7 @@ const ValueCard = ({ icon, word }) => {
     >
       <div
         className="flex flex-col gap-3 justify-center items-start w-36 h-32
-                            tablet:flex-start tablet:gap-3.5 tablet:w-40 tbablet:h-36
+                            tablet:flex-start tablet:gap-3.5 tablet:w-40 tablet:h-36
                             desktop:gap-4 desktop:w-auto desktop:h-auto"
       >
         <div
