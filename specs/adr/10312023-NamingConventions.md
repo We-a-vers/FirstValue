@@ -13,7 +13,7 @@ Inconsistent branch, file, and variable names can affect the readability of code
 
 - Naming convention for branches
   - ‘fvt’ followed by issue # followed by issue name
-  - Ex. FVT-5-HomeHeader
+  - Ex. FVT-5-AboutHeader
 
 - Naming covention for files/components
   - PascalCase: capitalize the first letter of every word; no spaces/symbols
