@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import Hamburger from '/public/Hamburger.svg'
 
 const Navbar = () => {
   // const navStyle = {
@@ -39,7 +40,8 @@ const Navbar = () => {
           <li>聯絡我們</li>
           <li>中文 </li>
           <li>
-            <div className="bg-hamburger w-5 h-3" />
+            {/* <div className="bg-hamburger w-5 h-3" /> */}
+            <img src={Hamburger} />
           </li>
         </ul>
       </div>
