@@ -1,3 +1,4 @@
+import { TLdata } from "./components/data/timelineData"
 import TimeLine from "./components/time_line"
 const times = [
   {
