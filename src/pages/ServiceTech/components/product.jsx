@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const products = [
   {
@@ -33,24 +34,52 @@ const Product = () => {
   const [product, setProduct] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
+  const menu = {
+    initial: {
+      scaleY: 0,
+    },
+    close: {
+      scaleY: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    open: {
+      scaleY: 1,
+      transition: {
+        duration: 0.3,
+        ease: [0.12, 0, 0.39, 0],
+      },
+    },
+  };
+
   const renderOptions = () => {
     return (
-      <div>
-        <ul className="mt-2 w-[304px] overflow-y-auto max-h-30 border border-gray-500 rounded-xl">
-          {products.map((product) => (
-            <li
-              className="p-2 hover:bg-gray-300 text-center"
-              key={product.name}
-              onClick={() => {
-                setProduct(product.name);
-                setIsOpen(false);
-              }}
-            >
-              {product.name}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            animate="open"
+            initial="initial"
+            exit="close"
+            variants={menu}
+            className="mt-2 w-[304px] overflow-y-auto max-h-30 border border-gray-500 rounded-xl origin-top"
+          >
+            {products.map((product) => (
+              <li
+                className="p-2 hover:bg-gray-300 text-center"
+                key={product.name}
+                onClick={() => {
+                  setProduct(product.name);
+                  setIsOpen(false);
+                }}
+              >
+                {product.name}
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     );
   };
 
@@ -66,7 +95,7 @@ const Product = () => {
           onClick={() => setIsOpen((cur) => !cur)}
         />
       </div>
-      {isOpen && renderOptions()}
+      {renderOptions()}
     </div>
   );
 };
