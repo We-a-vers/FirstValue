@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import Hamburger from "/public/Hamburger.svg";
+import Hamburger from "/Hamburger.svg";
 import { useEffect, useState } from "react";
 import useScreenSize from "./hooks/useScreenSize";
 
