@@ -55,9 +55,16 @@ const Navbar = () => {
         <div>
           <ul className="ml-4 ">
             {/* Your list items go here */}
-            <li className="mb-2">主頁面</li>
-            <li className="mb-2">關於我們</li>
-            <li className="mb-2">技術＆服務</li>
+            <NavLink to="/">
+              <li className="mb-2">主頁面</li>
+            </NavLink>
+            <NavLink to="about">
+              <li className="mb-2">關於我們</li>
+            </NavLink>
+            <NavLink to="service">
+              <li className="mb-2">技術＆服務</li>
+            </NavLink>
+
             <li className="mb-2">聯絡我們</li>
           </ul>
         </div>
