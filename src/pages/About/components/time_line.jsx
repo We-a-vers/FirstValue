@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -7,8 +8,8 @@ import TimelineDot from '@mui/lab/TimelineDot';
 
 const TimeLine = ({ data }) => {
   const renderCSS = (index) => {
-    if (index % 2 === 0) return 'text-left';
-    else return 'text-right';
+    if (index % 2 === 1) return 'desktop:mr-36';
+    else return 'desktop:ml-32';
   };
 
   return (
@@ -37,7 +38,7 @@ const TimeLine = ({ data }) => {
               <div
                 className={`${renderCSS(
                   index,
-                )} desktop:w-100 text-zinc-800 desktop:text-[22px] text-[13px] font-normal font-['Noto Sans TC']`}
+                )} desktop: pb-40 desktop:w-10/12 text-zinc-800 desktop:text-[22px] text-[13px] font-normal font-['Noto Sans TC']`}
               >
                 {x.description}
               </div>
