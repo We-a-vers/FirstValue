@@ -40,16 +40,6 @@ export default {
       // Example: className="bg-main-gradient text-transparent bg-clip-text"
       backgroundImage: {
         'main-gradient': 'var(--first-value-gradient)',
-<<<<<<< HEAD
-        'landing-sub-title': 'var(--foundation-blue-dark-hover)',
-        'landing-text': 'var(--natural-color-gray)',
-        'subtitle-button': 'var(--foundation-blue-normal)',
-        'body-text': 'var(--natural-color-black)',
-        'navbar-text': 'var(--foundation-blue-dark)',
-        'button-text': 'var(--natural-color-white)',
-        hamburger: 'url("/public/vite.svg")'
-=======
->>>>>>> 7a919c76421ec2a203ccf323ee3563a04a9c94a1
       },
       // implementation: 'shadow-button-hover'
       boxShadow: {
