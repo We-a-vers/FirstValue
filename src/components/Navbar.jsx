@@ -1,49 +1,78 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from "react-router-dom";
+import Hamburger from "/Hamburger.svg";
+import { useEffect, useState } from "react";
+import useScreenSize from "./hooks/useScreenSize";
+import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const navStyle = {
-    background: '#7B8EA6',
-    color: '#FFFFFF',
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  };
+  const [isListVisible, setListVisible] = useState(false);
+  const screenSize = useScreenSize();
 
-  const ulStyle = {
-    listStyle: 'none',
-    display: 'flex',
-    justifyContent: 'flex-end',
-  };
-
-  const liStyle = {
-    margin: '0 10px',
-  };
+  useEffect(() => {
+    if (screenSize.width > 768) {
+      setListVisible(false);
+    }
+  }, [screenSize.width]);
 
   return (
     <div>
-      <div style={navStyle} className="navbar">
+      <div className="bg-white text-blue-400 p-4 flex justify-between items-center">
         <div className="font-medium">鴻日興科技 First Value Technology Co</div>
-        <ul style={ulStyle} className="nav-list">
+        <div>
+          {!isListVisible && (
+            <div onClick={() => setListVisible(!isListVisible)}>
+              <img
+                src={Hamburger}
+                className="justify-end center tablet:hidden"
+              />
+            </div>
+          )}
+
+          {isListVisible && (
+            <div onClick={() => setListVisible(!isListVisible)}>
+              <IoClose style={{ fontSize: "2em" }} />
+            </div>
+          )}
+        </div>
+
+        <ul className="hidden tablet:flex list-none justify-end items-center gap-2">
           <NavLink to="/">
-            <li style={liStyle}>主頁面</li>
+            <li>主頁面</li>
           </NavLink>
           <NavLink to="about">
-            <li style={liStyle}>關於我們</li>
+            <li>關於我們</li>
           </NavLink>
           <NavLink to="service">
-            <li style={liStyle}>技術</li>
+            <li>技術</li>
           </NavLink>
-          <li style={liStyle}>服務</li>
-          <li style={liStyle}>聯絡我們</li>
-          <li style={liStyle}>中文 </li>
+          <li>服務</li>
+          <li>聯絡我們</li>
+          <li>中文 </li>
         </ul>
       </div>
 
-      <main>
-        <Outlet />
-      </main>
+      {isListVisible ? (
+        <div>
+          <ul className="ml-4 ">
+            {/* Your list items go here */}
+            <NavLink to="/">
+              <li className="mb-2">主頁面</li>
+            </NavLink>
+            <NavLink to="about">
+              <li className="mb-2">關於我們</li>
+            </NavLink>
+            <NavLink to="service">
+              <li className="mb-2">技術＆服務</li>
+            </NavLink>
+
+            <li className="mb-2">聯絡我們</li>
+          </ul>
+        </div>
+      ) : (
+        <main>
+          <Outlet />
+        </main>
+      )}
     </div>
   );
 };
