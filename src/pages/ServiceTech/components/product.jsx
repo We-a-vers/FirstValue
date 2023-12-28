@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+import { TbPointFilled } from 'react-icons/tb';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const products = [
@@ -7,6 +8,13 @@ const products = [
     name: 'ITO燒結爐',
     description:
       '這總技術有別於一般的梨型狀產品的長晶爐, 其生長過程即是多片狀, 搭配均溫的控制及自動化的提拉重量控制分析',
+    details: [
+      '厚度：1mm~8mm',
+      '寬度：從10mm~170mm',
+      '長度：500mm（新技術可到1,000mm 也可長晶C軸面藍寶石)',
+      '厚度公差 +/-0.02 mm',
+      '尺寸公差 +/-0.05 mm',
+    ],
   },
   {
     name: 'Product 2',
@@ -31,7 +39,11 @@ const products = [
 ];
 
 const Product = () => {
-  const [product, setProduct] = useState('');
+  const [product, setProduct] = useState({
+    name: products[0].name,
+    description: products[0].description,
+    details: products[0].details,
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   const menu = {
@@ -41,14 +53,14 @@ const Product = () => {
     close: {
       scaleY: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.15,
         ease: [0.22, 1, 0.36, 1],
       },
     },
     open: {
       scaleY: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.15,
         ease: [0.12, 0, 0.39, 0],
       },
     },
@@ -63,14 +75,14 @@ const Product = () => {
             initial="initial"
             exit="close"
             variants={menu}
-            className="mt-2 w-[304px] overflow-y-auto max-h-30 border border-gray-500 rounded-xl origin-top"
+            className="mt-2 w-full overflow-y-auto max-h-30 border border-gray-500 rounded-xl origin-top text-xs font-normal font-chi-sans"
           >
             {products.map((product) => (
               <li
                 className="p-2 hover:bg-gray-300 text-center"
                 key={product.name}
                 onClick={() => {
-                  setProduct(product.name);
+                  setProduct(product);
                   setIsOpen(false);
                 }}
               >
@@ -83,19 +95,65 @@ const Product = () => {
     );
   };
 
+  const renderGallery = () => {
+    return (
+      <div className="w-full mt-2">
+        {/* Grid container */}
+        <div className="grid grid-cols-3 gap-4">
+          {/* Main image placeholder that spans the full width */}
+          <div className="col-span-3 bg-gray-300 rounded-lg h-64 w-full"></div>
+
+          {/* Thumbnails placeholders */}
+          <div className="bg-gray-200 rounded-lg h-24 w-full"></div>
+          <div className="bg-gray-200 rounded-lg h-24 w-full"></div>
+          <div className="bg-gray-200 rounded-lg h-24 w-full"></div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div className="mt-8 flex flex-col justify-center items-center text-xs font-normal font-chi-sans">
-      <div className="bg-white w-[304px] p-3 flex items-center justify-center rounded-xl shadow border border-zinc-200">
-        <span className="flex-grow text-center">
-          {product === '' ? 'Select a Product' : product}
+    <div className="mt-8 flex flex-col justify-center items-center">
+      {/* DropDown */}
+      <div
+        className="bg-white w-full p-3 flex items-center justify-center rounded-xl shadow border border-zinc-200 hover:cursor-pointer"
+        onClick={() => setIsOpen((cur) => !cur)}
+      >
+        <span className="flex-grow text-center text-xs font-normal font-chi-sans">
+          {product.name === '' ? 'Select a Product' : product.name}
         </span>
-        <FaAngleDown
-          className="hover:cursor-pointer"
-          size={20}
-          onClick={() => setIsOpen((cur) => !cur)}
-        />
+
+        {isOpen ? <FaAngleUp size={20} /> : <FaAngleDown size={20} />}
       </div>
       {renderOptions()}
+
+      <div className="mt-8 w-full">
+        {/* Product Title */}
+        <div className="text-[17px] font-normal font-chi-sans text-foundation-blue-normal text-start">
+          {product.name}
+        </div>
+        {/* Product Description */}
+        <div className="text-[11px] font-normal font-chi-sans text-natural-color-black text-start my-2.5">
+          {product.description}
+        </div>
+      </div>
+
+      {renderGallery()}
+
+      {/* Product Details */}
+      {product.details && (
+        <div className="flex flex-col gap-2 w-full p-4 rounded-lg border-2 mt-5">
+          <div className="text-sm font-medium font-chi-sans">詳細資訊</div>
+          {product.details.map((detail) => {
+            return (
+              <div className="flex flex-row items-center gap-1 text-[11px] font-normal font-chi-sans text-natural-color-black">
+                <TbPointFilled size={10} />
+                {detail}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

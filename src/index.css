@@ -12,3 +12,7 @@
     #8fbaeb 116.36%
   );
 }
+
+.custom-bullet::marker {
+  font-size: 0.5em; /* Adjust the size as needed */
+}
