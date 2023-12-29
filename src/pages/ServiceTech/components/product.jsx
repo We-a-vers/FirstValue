@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { TbPointFilled } from 'react-icons/tb';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScreenSize from '../../../components/hooks/useScreenSize';
 
 const products = [
   {
@@ -45,6 +46,16 @@ const Product = () => {
     details: products[0].details,
   });
   const [isOpen, setIsOpen] = useState(false);
+  const [isDeskTop, setIsDeskTop] = useState(false);
+  const screenSize = useScreenSize();
+
+  useEffect(() => {
+    if (screenSize.width < 1440) {
+      setIsDeskTop(false);
+    } else {
+      setIsDeskTop(true);
+    }
+  }, screenSize);
 
   const menu = {
     initial: {
@@ -113,19 +124,43 @@ const Product = () => {
   };
 
   return (
-    <div className="mt-8 flex flex-col justify-center items-center">
+    <div className="mt-8 flex flex-col desktop:flex-row justify-center items-center desktop:items-start desktop:gap-[65px]">
+      <div className=""></div>
       {/* DropDown */}
-      <div
-        className="bg-white w-full p-3 flex items-center justify-center rounded-xl shadow border border-zinc-200 hover:cursor-pointer"
-        onClick={() => setIsOpen((cur) => !cur)}
-      >
-        <span className="flex-grow text-center text-xs font-normal font-chi-sans">
-          {product.name === '' ? 'Select a Product' : product.name}
-        </span>
+      {!isDeskTop ? (
+        <>
+          <div
+            className="bg-white w-full p-3 flex items-center justify-center rounded-xl shadow border border-zinc-200 hover:cursor-pointer"
+            onClick={() => setIsOpen((cur) => !cur)}
+          >
+            <span className="flex-grow text-center text-xs font-normal font-chi-sans">
+              {product.name === '' ? 'Select a Product' : product.name}
+            </span>
 
-        {isOpen ? <FaAngleUp size={20} /> : <FaAngleDown size={20} />}
-      </div>
-      {renderOptions()}
+            {isOpen ? <FaAngleUp size={20} /> : <FaAngleDown size={20} />}
+          </div>
+          {renderOptions()}
+        </>
+      ) : (
+        <div className="flex flex-col gap-5">
+          {products.map((p) => {
+            return (
+              <div
+                className={`w-[211px] h-[58px] p-5 ${
+                  p.name === product.name
+                    ? 'bg-foundation-blue-normal text-white'
+                    : 'bg-white'
+                } rounded-[20px] shadow-lg text-center cursor-pointer mt-8`}
+                onClick={() => {
+                  setProduct(p);
+                }}
+              >
+                {p.name}
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       <div className="mt-8 w-full">
         {/* Product Title */}
@@ -136,24 +171,27 @@ const Product = () => {
         <div className="text-[11px] font-normal font-chi-sans text-natural-color-black text-start my-2.5">
           {product.description}
         </div>
+
+        {renderGallery()}
+
+        {/* Product Details */}
+        {product.details && (
+          <div className="flex flex-col gap-2 w-full p-4 rounded-lg border-2 mt-5">
+            <div className="text-sm font-medium font-chi-sans">詳細資訊</div>
+            {product.details.map((detail) => {
+              return (
+                <div
+                  className="flex flex-row items-center gap-1 text-[11px] font-normal font-chi-sans text-natural-color-black"
+                  key={detail}
+                >
+                  <TbPointFilled size={10} />
+                  {detail}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
-
-      {renderGallery()}
-
-      {/* Product Details */}
-      {product.details && (
-        <div className="flex flex-col gap-2 w-full p-4 rounded-lg border-2 mt-5">
-          <div className="text-sm font-medium font-chi-sans">詳細資訊</div>
-          {product.details.map((detail) => {
-            return (
-              <div className="flex flex-row items-center gap-1 text-[11px] font-normal font-chi-sans text-natural-color-black">
-                <TbPointFilled size={10} />
-                {detail}
-              </div>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 };
