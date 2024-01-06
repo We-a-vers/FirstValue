@@ -1,8 +1,8 @@
-import { NavLink, Outlet } from "react-router-dom";
-import Hamburger from "/Hamburger.svg";
-import { useEffect, useState } from "react";
-import useScreenSize from "./hooks/useScreenSize";
-import { IoClose } from "react-icons/io5";
+import { NavLink, Outlet } from 'react-router-dom';
+import Hamburger from '/Hamburger.svg';
+import { useEffect, useState } from 'react';
+import useScreenSize from './hooks/useScreenSize';
+import { IoClose } from 'react-icons/io5';
 
 const Navbar = () => {
   const [isListVisible, setListVisible] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = () => {
 
           {isListVisible && (
             <div onClick={() => setListVisible(!isListVisible)}>
-              <IoClose style={{ fontSize: "2em" }} />
+              <IoClose style={{ fontSize: '2em' }} />
             </div>
           )}
         </div>

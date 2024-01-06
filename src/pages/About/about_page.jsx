@@ -1,4 +1,5 @@
 import TimeLine from './components/time_line';
+import Footer from '../../components/footer';
 const times = [
   {
     year: 2012,
@@ -19,8 +20,7 @@ const times = [
   },
   {
     year: 2017,
-    description:
-      'ITO靶材燒結爐 with 日<br />本 ；3D貼合治具改善0.1mmt玻璃吸附問題',
+    description: 'ITO靶材燒結爐 with 日本 ；3D貼合治具改善0.1mmt玻璃吸附問題',
   },
   {
     year: 2018,
@@ -30,9 +30,10 @@ const times = [
 
 const About = () => {
   return (
-    <div>
+    <div className="h-screen w-screen">
       About
       <TimeLine data={times} />
+      <Footer />
     </div>
   );
 };
