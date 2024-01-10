@@ -5,6 +5,10 @@ import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
 import ServiceTechImg from '../../assets/home/placeholder.png';
 import Footer from '../../components/footer';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import useScreenSize from '../../components/hooks/useScreenSize.jsx';
+import { useEffect, useState } from 'react';
 
 const valuedata = [
   {
@@ -53,16 +57,48 @@ const renderServiceTechCards = () => {
   ));
 };
 
+const responsive = {
+  mobile: {
+    breakpoint: { max: 576, min: 0 },
+    items: 1,
+    partialVisibilityGutter: 10,
+  },
+};
+
 const Home = () => {
+  const [carouselVisible, setcarouselVisible] = useState(true);
+  const screenSize = useScreenSize();
+
+  useEffect(() => {
+    if (screenSize.width > 576) {
+      setcarouselVisible(false);
+    } else {
+      setcarouselVisible(true);
+    }
+  }, [screenSize]);
+
   return (
     <div>
-      <div
-        className="flex justify-between items-start w-80 h-52 shrink-0 mr-3
-                          tablet:gap-5
-                          desktop:w-[77.5rem] desktop:h-[16.25rem] desktop:flex-row"
-      >
-        {renderCards()}
-      </div>
+      {carouselVisible ? (
+        <Carousel
+          className="pr-4"
+          itemClass="carousel-item-padding-40-px"
+          responsive={responsive}
+          swipeable={true}
+          centerMode={true}
+          partialVisible={false}
+        >
+          {renderCards()}
+        </Carousel>
+      ) : (
+        <div
+          className="flex justify-between items-start w-80 h-52 shrink-0 mr-3
+           tablet:gap-9
+           desktop:w-[77.5rem] desktop:h-[16.25rem] desktop:flex-row"
+        >
+          {renderCards()}
+        </div>
+      )}
       <div>{renderServiceTechCards()}</div>
       <Footer />
     </div>
