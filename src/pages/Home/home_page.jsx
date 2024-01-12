@@ -4,6 +4,7 @@ import DealImg from '../../assets/home/deal.svg';
 import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
 import ServiceTechImg from '../../assets/home/placeholder.png';
+import Footer from '../../components/footer';
 
 const valuedata = [
   {
@@ -63,6 +64,7 @@ const Home = () => {
         {renderCards()}
       </div>
       <div>{renderServiceTechCards()}</div>
+      <Footer />
     </div>
   );
 };

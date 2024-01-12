@@ -30,7 +30,7 @@ export default {
         'natural-color-gray': '#646368',
         'foundation-blue-normal': '#023e73',
         'natural-color-black': '#21272a',
-        'foundation-blue-dark': '#022f56',
+        'foundation-blue-dark': '#011628',
         'natural-color-white': '#fafafa',
         'service-tech-card-border-color': '#40464d0d',
       },
