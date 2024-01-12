@@ -140,12 +140,13 @@ const Product = () => {
             variants={menu}
             className="mt-2 w-full overflow-y-auto max-h-30 border border-gray-500 rounded-xl origin-top text-xs font-normal font-chi-sans"
           >
-            {products.map((product) => (
+            {products.map((product, index) => (
               <li
                 className="p-2 hover:bg-gray-300 text-center"
-                key={product.name}
+                key={index}
                 onClick={() => {
                   setProduct(product);
+                  setSelectedPhoto(product.photos[0]);
                   setIsOpen(false);
                 }}
               >
@@ -218,10 +219,10 @@ const Product = () => {
         </>
       ) : (
         <div className="flex flex-col">
-          {products.map((p) => {
+          {products.map((p, index) => {
             return (
               <div
-                key={p.details}
+                key={index}
                 className={`w-[211px] h-[58px] p-5 ${
                   p.name === product.name
                     ? 'bg-foundation-blue-normal text-white'
@@ -257,11 +258,11 @@ const Product = () => {
             <div className="text-sm desktop:text-lg font-medium font-chi-sans">
               詳細資訊
             </div>
-            {product.details.map((detail) => {
+            {product.details.map((detail, index) => {
               return (
                 <div
                   className="flex flex-row items-center gap-1 text-[11px] tablet:text-xs desktop:text-lg font-normal font-chi-sans text-natural-color-black"
-                  key={detail}
+                  key={index}
                 >
                   <TbPointFilled size={10} />
                   {detail}
