@@ -1,10 +1,10 @@
-import Footer from '../../components/footer';
+import Header from "./components/Header";
+
 const ServiceTech = () => {
   return (
-    <>
-      ServiceTech
-      <Footer />
-    </>
+    <div className = 'px-4 w-screen h-screen'>
+      <Header />
+    </div>
   );
 };
 
