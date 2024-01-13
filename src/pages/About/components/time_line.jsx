@@ -32,13 +32,13 @@ const TimeLine = ({ data }) => {
               />
             </TimelineSeparator>
             <TimelineContent>
-              <div className="desktop:pt-18 text-sky-900 desktop:text-4xl text-xl font-medium font-['Noto Serif TC']">
+              <div className="desktop:pt-18 text-foundation-blue-normal desktop:text-4xl text-xl font-medium font-chi-serif">
                 {x.year}
               </div>
               <div
                 className={`${renderCSS(
                   index,
-                )} desktop: pb-40 desktop:w-10/12 text-zinc-800 desktop:text-[22px] text-[13px] font-normal font-['Noto Sans TC']`}
+                )} desktop: pb-40 desktop:w-10/12 text-natural-color-black desktop:text-[22px] text-[13px] font-normal font-chi-sans`}
               >
                 {x.description}
               </div>
