@@ -3,6 +3,7 @@ import Hamburger from '/Hamburger.svg';
 import { useEffect, useState } from 'react';
 import useScreenSize from './hooks/useScreenSize';
 import { IoClose } from 'react-icons/io5';
+import Footer from './footer';
 
 const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -77,9 +78,12 @@ const Navbar = () => {
           </ul>
         </div>
       ) : (
-        <main>
-          <Outlet />
-        </main>
+        <>
+          <main className="bg-[#F6F8F9] py-16 desktop:py-36 px-[36px] tablet:px-[70px] desktop:px-[145px]">
+            <Outlet />
+          </main>
+          <Footer />
+        </>
       )}
     </div>
   );
