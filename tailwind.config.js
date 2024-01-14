@@ -13,6 +13,7 @@ export default {
         desktop: '1440px',
         tablet: '768px',
         smartphone: '360px',
+        gapAppears: '510px',
       },
       // implementation: 'bg-dark-active'
       colors: {
