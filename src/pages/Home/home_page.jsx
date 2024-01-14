@@ -4,9 +4,6 @@ import DealImg from '../../assets/home/deal.svg';
 import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
 import ServiceTechImg from '../../assets/home/placeholder.png';
-import { Carousel } from 'flowbite-react';
-import { useEffect, useState } from 'react';
-import useScreenSize from '../../components/hooks/useScreenSize';
 
 const valuedata = [
   {
@@ -35,13 +32,9 @@ const servicetechdata = [
   },
   {
     image: ServiceTechImg,
-    title: '2',
-    description: 'Ipsum DIDIDIDIDDIDIDIDId',
-  },
-  {
-    image: ServiceTechImg,
-    title: '3',
-    description: 'AIAIAIAIAAIAIAIAAIAIAAIAIAIAAIAIAIAAI',
+    title: 'EFG導膜法長晶爐',
+    description:
+      '這總技術有別於一般的梨型狀產品的長晶爐, 其生長過程即是多片狀, 搭配均溫的控制及自動化的提拉重量控制分析',
   },
 ];
 
@@ -76,7 +69,14 @@ const Home = () => {
           {renderCards()}
         </div>
       </div>
-      <div>{renderServiceTechCards()}</div>
+      <div className="flex flex-col py-4 desktop:py-20">
+        <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
+          技術＆服務
+        </div>
+      </div>
+      <div className="flex flex-row justify-between tablet:justify-around overflow-x-auto tablet:overflow-x-hidden tablet:gap-[46px] tablet:py-[50px] ">
+        {renderServiceTechCards()}
+      </div>
     </div>
   );
 };
