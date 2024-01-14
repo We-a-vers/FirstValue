@@ -4,7 +4,6 @@ import DealImg from '../../assets/home/deal.svg';
 import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
 import ServiceTechImg from '../../assets/home/placeholder.png';
-import Footer from '../../components/footer';
 import { Carousel } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import useScreenSize from '../../components/hooks/useScreenSize';
@@ -67,43 +66,10 @@ const renderServiceTechCards = () => {
 };
 
 const Home = () => {
-  const [isCarousel, setCarousel] = useState(false);
-  const screenSize = useScreenSize();
-
-  useEffect(() => {
-    console.log(screenSize.width);
-    if (screenSize.width < 576) {
-      setCarousel(true);
-    } else {
-      setCarousel(false);
-    }
-  }, [screenSize.width]);
-
-  console.log(isCarousel);
-
   return (
     <div>
-      <div
-        className="flex justify-between items-start w-80 h-52 shrink-0 mr-3
-                          tablet:gap-5
-                          desktop:w-[77.5rem] desktop:h-[16.25rem] desktop:flex-row"
-      >
-        {renderCards()}
-      </div>
-      {isCarousel && (
-        <div className="w-[19rem]">
-          <Carousel slide={false}>{renderServiceTechCards()}</Carousel>
-        </div>
-      )}
-      {!isCarousel && (
-        <div
-          className="flex flex-row justify-between items-start
-                        desktop:w-[77.5] desktop:h-auto"
-        >
-          {renderServiceTechCards()}
-        </div>
-      )}
-      <Footer />
+      <div>{renderCards()}</div>
+      <div>{renderServiceTechCards()}</div>
     </div>
   );
 };
