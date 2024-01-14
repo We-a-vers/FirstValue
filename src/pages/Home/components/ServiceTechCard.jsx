@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 const ServiceTechCard = ({ image, title, description }) => {
   return (
     <div
-      className="flex flex-col grow-[1] justify-center items-center max-w-[304px] gap-[30px] p-[30px] 
+      className="flex flex-col grow-[1] justify-center items-center w-[304px] gap-[30px] p-[30px] 
                 bg-white shadow-service-tech-card-border rounded-[0.625rem] border border-solid border-service-tech-card-border-color
                     tablet:gap-[0.75rem] tablet: w-[334px]
                     desktop:gap-[2.1875rem] desktop:shrink-0 desktop:w-[550px] desktop:p-[40px] "
     >
       <div
-        className="flex items-start max-w-[244px] max-h-[149px] 
+        className="flex items-start w-[244px] h-[149px] 
       tablet:w-[280px] desktop:w-[480px] desktop:h-[250px]"
       >
         <img
