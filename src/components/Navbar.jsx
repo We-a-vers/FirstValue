@@ -9,6 +9,11 @@ const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const screenSize = useScreenSize();
+  const [selectedItem, setSelectedItem] = useState('Home');
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
 
   useEffect(() => {
     if (screenSize.width < 1440) {
@@ -28,18 +33,54 @@ const Navbar = () => {
           {isDesktop ? (
             <div>
               <ul className="flex flex-row gap-4">
-                {/* Your list items go here */}
                 <NavLink to="/">
-                  <li className="mb-2">主頁面</li>
+                  <li
+                    style={{
+                      fontWeight: selectedItem === 'Home' ? 'bold' : 'normal',
+                      borderBottom:
+                        selectedItem === 'Home' ? '2px solid black' : 'none',
+                    }}
+                    onClick={() => handleItemClick('Home')}
+                  >
+                    主頁面
+                  </li>
                 </NavLink>
                 <NavLink to="about">
-                  <li className="mb-2">關於我們</li>
+                  <li
+                    style={{
+                      fontWeight: selectedItem === 'About' ? 'bold' : 'normal',
+                      borderBottom:
+                        selectedItem === 'About' ? '2px solid black' : 'none',
+                    }}
+                    onClick={() => handleItemClick('About')}
+                  >
+                    關於我們
+                  </li>
                 </NavLink>
                 <NavLink to="service">
-                  <li className="mb-2">技術＆服務</li>
+                  <li
+                    style={{
+                      fontWeight:
+                        selectedItem === 'Service' ? 'bold' : 'normal',
+                      borderBottom:
+                        selectedItem === 'Service' ? '2px solid black' : 'none',
+                    }}
+                    onClick={() => handleItemClick('Service')}
+                  >
+                    技術＆服務
+                  </li>
                 </NavLink>
 
-                <li className="mb-2">聯絡我們</li>
+                <li
+                  style={{
+                    fontWeight: selectedItem === 'Contact' ? 'bold' : 'normal',
+                    borderBottom:
+                      selectedItem === 'Contact' ? '2px solid black' : 'none',
+                  }}
+                  onClick={() => handleItemClick('Contact')}
+                >
+                  聯絡我們
+                </li>
               </ul>
             </div>
           ) : (
@@ -65,16 +106,16 @@ const Navbar = () => {
           <ul className="text-center mt-8 flex flex-col gap-3 font-chi-sans text-2xl tablet:text-xl text-foundation-blue-normal">
             {/* Your list items go here */}
             <NavLink to="/">
-              <li>主頁面</li>
+              <li onClick={() => setIsOpen(false)}>主頁面</li>
             </NavLink>
             <NavLink to="about">
-              <li>關於我們</li>
+              <li onClick={() => setIsOpen(false)}>關於我們</li>
             </NavLink>
             <NavLink to="service">
-              <li>技術＆服務</li>
+              <li onClick={() => setIsOpen(false)}>技術＆服務</li>
             </NavLink>
 
-            <li>聯絡我們</li>
+            <li onClick={() => setIsOpen(false)}>聯絡我們</li>
           </ul>
         </div>
       ) : (
