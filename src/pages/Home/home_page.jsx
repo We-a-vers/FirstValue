@@ -69,13 +69,25 @@ const Home = () => {
           {renderCards()}
         </div>
       </div>
-      <div className="flex flex-col py-4 desktop:py-20">
+      <div className="flex flex-col py-4 gap-3 desktop:gap-[32px] pb-[46px] desktop:py-20 desktop:px-[60px]">
         <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
           技術＆服務
         </div>
+        <div className="flex text-zinc-800 text-[13px] tablet:text-lg desktop:text-2xl font-normal font-chi-serif leading-[25px]">
+          鴻日興科技主要是做開發面板/LED/半導體測試治具及UV固化點膠應用開發及日本加工技術的塗布/Clean
+          Roller,跟代理國外設備, 以滿足客戶的製程需求,
+          同時也努力將技術做現地化以利長久的技術運作。
+        </div>
       </div>
-      <div className="flex flex-row justify-between tablet:justify-around overflow-x-auto tablet:overflow-x-hidden tablet:gap-[46px] tablet:py-[50px] ">
+      <div className="flex flex-row justify-between gap-[30px] tablet:justify-around overflow-x-auto tablet:overflow-x-hidden tablet:gap-[46px] ">
         {renderServiceTechCards()}
+      </div>
+      <div className="flex flex-row justify-center pt-[60px]">
+        <div className="flex justify-center items-center w-[100px] tablet:w-[135px] desktop:w-[230px] h-[30px] tablet:h-[40px] desktop:h-[58px] bg-white rounded-[20px] border border-sky-900 pb-px">
+          <div className="text-center text-sky-900 text-xs tablet:text-lg desktop:2xl font-normal font-chi-serif leading-3">
+            瞭解更多
+          </div>
+        </div>
       </div>
     </div>
   );
