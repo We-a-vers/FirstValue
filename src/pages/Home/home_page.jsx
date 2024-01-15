@@ -15,7 +15,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="space-y-10 flex flex-row justify-between">
-                <button class="bg-normal w-full text-white font-bold rounded-2xl text-center solid py-2 px-4 rounded-full gap-y-3">
+                <button class="bg-normal w-full text-white font-bold mt-3 rounded-2xl text-center solid py-2 px-4 rounded-full gap-y-3">
                     關於我們
                 </button>
             </div>
