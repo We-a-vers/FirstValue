@@ -66,32 +66,28 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex flex-col gap-2 px-[50px] tablet:px-[70px] desktop:px-[109px] py-[53px] tablet:py-[73px] desktop:py-[121px] bg-gray-50 text-left items-center">
-        <div className="">
-          <div
-            className="text-[28px] text-center desktop:text-[64px] font-bold font-['Inter'] 
-                    bg-gradient-to-l from-blue-950 to-blue-300 bg-clip-text text-transparent"
-          >
-            價值 創新 承諾
-          </div>
-          <div
-            className="text-black text-center text-sm tablet:text-base desktop:text-[32px] font-bold font-['Noto Sans TC']
-                mt-3 text-shadow-lg desktop:mt-6 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]"
-          >
-            經驗的累積是為了追求完美 知識的累積是為了追求創新
-          </div>
-          <div className="text-black text-center text-xs tablet:text-base desktop:text-[28px] font-medium font-['Noto Sans TC'] mt-3 desktop:mt-6">
-            我們是擁有半導體、平板顯示器、藍寶石和矽晶片微加工經驗的ODM＆OEM廠。我們的團隊專注於設計零件、治具、自動化設備，並與全球領先的設備製造商合作，提供技術解決方案
-          </div>
+      <div className="flex flex-col justify-center items-center py-20 tablet:py-24 desktop:py-40 gap-2 tablet:gap-6 desktop:gap-3">
+        <div className="text-[34px] tablet:text-5xl desktop:text-[80px] text-center font-normal font-chi-sans bg-gradient-to-l from-blue-950 to-blue-300 bg-clip-text text-transparent">
+          價值 創新 承諾
         </div>
-        <div className="space-y-10 flex flex-row justify-between">
-          <button class="bg-normal w-full text-white font-bold rounded-2xl text-center solid py-2 px-4 rounded-full gap-y-3">
+        <div className="text-natural-color-black text-center text-base tablet:text-xl desktop:text-4xl font-medium font-chi-sans desktop:mt-7 leading-normal">
+          經驗的累積是為了追求完美 知識的累積是為了追求創新
+        </div>
+        <div className="text-natural-color-gray text-center text-xs tablet:text-sm desktop:text-2xl font-normal font-chi-sans mt-[14px]">
+          我們是擁有半導體、平板顯示器、藍寶石和矽晶片微加工經驗的ODM＆OEM廠。我們的團隊專注於設計零件、治具、自動化設備，並與全球領先的設備製造商合作，提供技術解決方案
+        </div>
+        <NavLink
+          to="About"
+          className={'w-full flex justify-center'}
+          onClick={() => setSelectedItem('About')}
+        >
+          <button className="mt-5 desktop:mt-12 bg-foundation-blue-normal rounded-[20px] text-white font-sans text-sm desktop:text-2xl font-medium py-[14px] tablet:py-3 w-full tablet:w-auto tablet:px-10 desktop:px-16">
             關於我們
           </button>
-        </div>
+        </NavLink>
       </div>
 
-      <div className="flex flex-col py-4 desktop:py-20">
+      <div className="flex flex-col tablet:py-5 desktop:py-20">
         <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
           核心價值
         </div>
@@ -99,27 +95,29 @@ const Home = () => {
           {renderCards()}
         </div>
       </div>
-      <div className="flex flex-col py-4 gap-3 desktop:gap-[32px] pb-[46px] desktop:py-20 desktop:px-[60px]">
-        <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
-          技術＆服務
+      <div className="flex flex-col py-10 tablet:py-14 desktop:py-52">
+        <div className="flex flex-col gap-3 desktop:gap-[32px]">
+          <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
+            技術＆服務
+          </div>
+          <div className="flex text-zinc-800 text-[13px] tablet:text-lg desktop:text-2xl font-normal tablet:text-center font-chi-serif leading-[25px]">
+            鴻日興科技主要是做開發面板/LED/半導體測試治具及UV固化點膠應用開發及日本加工技術的塗布/Clean
+            Roller,跟代理國外設備, 以滿足客戶的製程需求,
+            同時也努力將技術做現地化以利長久的技術運作。
+          </div>
         </div>
-        <div className="flex text-zinc-800 text-[13px] tablet:text-lg desktop:text-2xl font-normal tablet:text-center font-chi-serif leading-[25px]">
-          鴻日興科技主要是做開發面板/LED/半導體測試治具及UV固化點膠應用開發及日本加工技術的塗布/Clean
-          Roller,跟代理國外設備, 以滿足客戶的製程需求,
-          同時也努力將技術做現地化以利長久的技術運作。
+        <div className="flex flex-row mt-11 gap-[30px] tablet:justify-evenly overflow-x-auto no-scrollbar tablet:overflow-x-hidden tablet:gap-[46px] ">
+          {renderServiceTechCards()}
         </div>
+        <NavLink to="/service" className="flex justify-center">
+          <button
+            onClick={() => setSelectedItem('Service')}
+            className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium"
+          >
+            瞭解更多
+          </button>
+        </NavLink>
       </div>
-      <div className="flex flex-row gap-[30px] tablet:justify-evenly overflow-x-auto no-scrollbar tablet:overflow-x-hidden tablet:gap-[46px] ">
-        {renderServiceTechCards()}
-      </div>
-      <NavLink to="/service" className="flex justify-center">
-        <button
-          onClick={() => setSelectedItem('Service')}
-          className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium"
-        >
-          瞭解更多
-        </button>
-      </NavLink>
     </div>
   );
 };
