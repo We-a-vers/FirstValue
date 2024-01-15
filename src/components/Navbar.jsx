@@ -79,7 +79,7 @@ const Navbar = () => {
         </div>
       ) : (
         <>
-          <main className="bg-[#F6F8F9] py-16 desktop:py-36 px-[36px] tablet:px-[70px] desktop:px-[145px]">
+          <main className="bg-[#F6F8F9] py-16 desktop:py-36 px-[36px]">
             <Outlet />
           </main>
           <Footer />
