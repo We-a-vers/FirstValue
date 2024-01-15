@@ -5,6 +5,8 @@ import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
 import ServiceTechImg from '../../assets/home/placeholder.png';
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { NavbarContext } from '../../components/Navbar.jsx';
 
 const valuedata = [
   {
@@ -60,6 +62,8 @@ const renderServiceTechCards = () => {
 };
 
 const Home = () => {
+  const [, setSelectedItem] = useContext(NavbarContext);
+
   return (
     <div>
       <div className="flex flex-col py-4 desktop:py-20">
@@ -84,7 +88,10 @@ const Home = () => {
         {renderServiceTechCards()}
       </div>
       <NavLink to="/service" className="flex justify-center">
-        <button className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium">
+        <button
+          onClick={() => setSelectedItem('Service')}
+          className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium"
+        >
           瞭解更多
         </button>
       </NavLink>
