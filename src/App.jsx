@@ -3,11 +3,11 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from "react-router-dom";
-import Home from "./pages/Home/home_page";
-import About from "./pages/About/about_page";
-import ServiceTech from "./pages/ServiceTech/service_page";
-import Navbar from "./components/Navbar";
+} from 'react-router-dom';
+import Home from './pages/Home/home_page';
+import About from './pages/About/about_page';
+import ServiceTech from './pages/ServiceTech/service_page';
+import Navbar from './components/Navbar';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +20,11 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <div className="min-h-dvh w-dvw">
+      <RouterProvider router={router} />
+    </div>
+  );
 };
 
 export default App;
