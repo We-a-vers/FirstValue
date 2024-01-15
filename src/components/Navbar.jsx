@@ -1,43 +1,129 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from 'react-router-dom';
+import Hamburger from '/Hamburger.svg';
+import { createContext, useEffect, useState } from 'react';
+import useScreenSize from './hooks/useScreenSize';
+import { IoClose } from 'react-icons/io5';
+import Footer from './footer';
+
+export const NavbarContext = createContext(null);
 
 const Navbar = () => {
-  const navStyle = {
-    background: '#7B8EA6',
-    color: '#FFFFFF',
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const screenSize = useScreenSize();
+  const [selectedItem, setSelectedItem] = useState('Home');
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
   };
 
-  const ulStyle = {
-    listStyle: 'none',
-    display: 'flex',
-    justifyContent: 'flex-end',
-  };
-
-  const liStyle = {
-    margin: '0 10px',
-  };
+  useEffect(() => {
+    if (screenSize.width < 1440) {
+      setIsDesktop(false);
+    } else {
+      setIsDesktop(true);
+    }
+  }, [screenSize.width]);
 
   return (
     <div>
-        <div style={navStyle} className="navbar">
-            <div class="font-medium">鴻日興科技 First Value Technology Co</div>
-            <ul style={ulStyle} className="nav-list">
-                <NavLink to="/"><li style={liStyle}>主頁面</li></NavLink>
-                <NavLink to="about"><li style={liStyle}>關於我們</li></NavLink>
-                <NavLink to="service"><li style={liStyle}>技術</li></NavLink>
-                <li style={liStyle}>服務</li>
-                <li style={liStyle}>聯絡我們</li>
-                <li style={liStyle}>中文 </li>
-            </ul>
+      <div className="bg-white font-chi-sans text-foundation-blue-normal py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
+        <div className="text-base font-normal tablet:text-lg">
+          鴻日興 {isDesktop && '科技 First Value Technology Co'}
         </div>
-        
-        <main><Outlet/></main>
+        <div>
+          {isDesktop ? (
+            <div>
+              <ul className="flex flex-row gap-4">
+                <NavLink to="/">
+                  <li
+                    className={`
+                      px-3 py-2
+                      ${
+                        selectedItem === 'Home'
+                          ? 'font-bold border-b border-foundation-blue-normal solid black'
+                          : 'font-normal border-none'
+                      }`}
+                    onClick={() => handleItemClick('Home')}
+                  >
+                    主頁面
+                  </li>
+                </NavLink>
+                <NavLink to="about">
+                  <li
+                    className={`
+                      px-3 py-2 
+                      ${
+                        selectedItem === 'About'
+                          ? 'font-bold border-b border-foundation-blue-normal solid black'
+                          : 'font-normal border-none'
+                      }`}
+                    onClick={() => handleItemClick('About')}
+                  >
+                    關於我們
+                  </li>
+                </NavLink>
+                <NavLink to="service">
+                  <li
+                    className={`
+                      px-3 py-2
+                      ${
+                        selectedItem === 'Service'
+                          ? 'font-bold border-b border-foundation-blue-normal solid black'
+                          : 'font-normal border-none'
+                      }`}
+                    onClick={() => handleItemClick('Service')}
+                  >
+                    技術＆服務
+                  </li>
+                </NavLink>
+              </ul>
+            </div>
+          ) : (
+            <>
+              {!isOpen && (
+                <div onClick={() => setIsOpen(true)}>
+                  <img src={Hamburger} className="justify-end" />
+                </div>
+              )}
+
+              {isOpen && (
+                <div onClick={() => setIsOpen(false)}>
+                  <IoClose style={{ fontSize: '2em' }} />
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+
+      {isOpen ? (
+        <div>
+          <ul className="text-center mt-8 flex flex-col gap-16 font-chi-sans text-2xl tablet:text-3xl text-foundation-blue-normal">
+            {/* Your list items go here */}
+            <NavLink to="/">
+              <li onClick={() => setIsOpen(false)}>主頁面</li>
+            </NavLink>
+            <NavLink to="about">
+              <li onClick={() => setIsOpen(false)}>關於我們</li>
+            </NavLink>
+            <NavLink to="service">
+              <li onClick={() => setIsOpen(false)}>技術＆服務</li>
+            </NavLink>
+          </ul>
+        </div>
+      ) : (
+        <>
+          <main className="bg-[#F6F8F9] py-16 desktop:py-36 px-[36px] tablet:px-[72px] desktop:px-[135px]">
+            <NavbarContext.Provider value={[selectedItem, setSelectedItem]}>
+              <Outlet />
+            </NavbarContext.Provider>
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default Navbar;

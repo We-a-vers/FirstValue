@@ -1,15 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --first-value-gradient: linear-gradient(271deg, #19335A 0.22%, #8FBAEB 116.36%);
-    --foundation-blue-dark-hover: #012545;
-    --natural-color-gray: #646368;
-    --foundation-blue-normal: #023E73;
-    --natural-color-black: #21272A;
-    --foundation-blue-dark: #022F56;
-    --natural-color-white: #FAFAFA;
+  --first-value-gradient: linear-gradient(
+    271deg,
+    #19335a 0.22%,
+    #8fbaeb 116.36%
+  );
+}
+
+.custom-bullet::marker {
+  font-size: 0.5em; /* Adjust the size as needed */
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
