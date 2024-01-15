@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import Hamburger from '/Hamburger.svg';
 import { createContext, useEffect, useState } from 'react';
 import useScreenSize from './hooks/useScreenSize';
@@ -11,7 +11,8 @@ const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const screenSize = useScreenSize();
-  const [selectedItem, setSelectedItem] = useState('Home');
+  const [selectedItem, setSelectedItem] = useState('');
+  const location = useLocation();
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -22,6 +23,17 @@ const Navbar = () => {
       setIsDesktop(false);
     } else {
       setIsDesktop(true);
+    }
+    switch (location.pathname) {
+      case '/':
+        setSelectedItem('Home');
+        break;
+      case '/about':
+        setSelectedItem('About');
+        break;
+      case '/service':
+        setSelectedItem('Service');
+        break;
     }
   }, [screenSize.width]);
 
@@ -114,7 +126,7 @@ const Navbar = () => {
         </div>
       ) : (
         <>
-          <main className="bg-[#F6F8F9] py-16 desktop:py-36 px-[36px] tablet:px-[72px] desktop:px-[135px]">
+          <main className="bg-[#F6F8F9] px-[36px] tablet:px-[72px] desktop:px-[135px]">
             <NavbarContext.Provider value={[selectedItem, setSelectedItem]}>
               <Outlet />
             </NavbarContext.Provider>
