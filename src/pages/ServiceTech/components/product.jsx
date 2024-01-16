@@ -4,7 +4,6 @@ import { TbPointFilled } from 'react-icons/tb';
 import { motion, AnimatePresence } from 'framer-motion';
 import useScreenSize from '../../../components/hooks/useScreenSize';
 import { products } from '../../../components/data/products';
-import { IoClose } from 'react-icons/io5';
 
 const Product = () => {
   const [product, setProduct] = useState(products[0]);

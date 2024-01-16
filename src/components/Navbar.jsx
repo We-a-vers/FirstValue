@@ -2,6 +2,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import Hamburger from '/Hamburger.svg';
 import { createContext, useEffect, useState } from 'react';
 import useScreenSize from './hooks/useScreenSize';
+import { IoClose } from 'react-icons/io5';
 import Footer from './Footer';
 
 export const NavbarContext = createContext(null);
