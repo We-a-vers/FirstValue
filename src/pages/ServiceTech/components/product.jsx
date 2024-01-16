@@ -101,7 +101,7 @@ const Product = () => {
           >
             {products.map((product, index) => (
               <li
-                className=" py-3 w-full text-center text-xs tablet:text-lg"
+                className=" py-3 w-full text-center text-xs tablet:text-lg cursor-pointer hover:bg-gray-100"
                 key={index}
                 onClick={() => {
                   setProduct(product);
