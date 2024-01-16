@@ -1,8 +1,11 @@
 import Product from './components/product';
+import Header from './components/Header';
+Header;
 
 const ServiceTech = () => {
   return (
-    <div className="w-screen h-screen px-10 desktop:px-24">
+    <div>
+      <Header />
       <Product />
     </div>
   );
