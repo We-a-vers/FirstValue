@@ -122,20 +122,25 @@ const Product = () => {
     return (
       <div className="flex flex-col gap-4 desktop:flex-row mt-5">
         {/* Main image placeholder that spans the full width */}
-        <img src={product.photos[0]} alt="Selected" className="w-full h-auto" />
+        <img
+          src={product.photos[0]}
+          alt="Selected"
+          className="w-full h-auto"
+          onClick={() => openModal(product.photos[0])}
+        />
 
-        {/* Thumbnails placeholders */}
-        <div className="w-full desktop:w-1/3 flex flex-row desktop:flex-col justify-between gap-4">
+        {/* Product placeholders */}
+        <div className="w-full desktop:w-1/3 flex flex-row desktop:flex-col justify-between">
           {product.photos.slice(1).map((image, index) => {
             return (
               <img
                 key={index}
                 src={image}
-                alt={`Thumbnail ${index + 1}`}
+                alt={`Product ${index + 1}`}
                 onClick={() => {
                   openModal(image);
                 }}
-                className="w-1/4 tablet:w-3/7 desktop:w-full h-auto"
+                className="w-[30%] h-auto desktop:w-auto desktop:h-[30%]"
               />
             );
           })}
