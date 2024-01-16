@@ -35,7 +35,7 @@ const Navbar = () => {
         setSelectedItem('Service');
         break;
     }
-  }, [screenSize.width]);
+  }, [screenSize.width, location.pathname]);
 
   return (
     <div>
