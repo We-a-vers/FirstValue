@@ -7,6 +7,7 @@ import ServiceTechImg from '../../assets/home/placeholder.png';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { NavbarContext } from '../../components/Navbar.jsx';
+import { products } from '../../components/data/products.jsx';
 
 const valuedata = [
   {
@@ -26,21 +27,6 @@ const valuedata = [
   },
 ];
 
-const servicetechdata = [
-  {
-    image: ServiceTechImg,
-    title: 'ITO燒結爐',
-    description:
-      '這總技術有別於一般的梨型狀產品的長晶爐, 其生長過程即是多片狀, 搭配均溫的控制及自動化的提拉重量控制分析...',
-  },
-  {
-    image: ServiceTechImg,
-    title: 'EFG導膜法長晶爐',
-    description:
-      '這總技術有別於一般的梨型狀產品的長晶爐, 其生長過程即是多片狀, 搭配均溫的控制及自動化的提拉重量控制分析',
-  },
-];
-
 const renderCards = () => {
   return valuedata.map((card) => (
     <div key={card.description}>
@@ -50,12 +36,12 @@ const renderCards = () => {
 };
 
 const renderServiceTechCards = () => {
-  return servicetechdata.map((card) => (
-    <div key={card.description}>
+  return products.slice(0, 2).map((product, index) => (
+    <div key={index}>
       <ServiceTechCard
-        image={card.image}
-        title={card.title}
-        description={card.description}
+        image={product.photos[0]}
+        title={product.name}
+        description={product.description}
       />
     </div>
   ));
@@ -106,7 +92,7 @@ const Home = () => {
             同時也努力將技術做現地化以利長久的技術運作。
           </div>
         </div>
-        <div className="flex flex-row mt-11 gap-[30px] tablet:justify-evenly overflow-x-auto no-scrollbar tablet:overflow-x-hidden tablet:gap-[46px] ">
+        <div className="flex flex-row mt-11 gap-[30px] tablet:gap-0 tablet:justify-evenly overflow-x-auto no-scrollbar tablet:overflow-x-hidden">
           {renderServiceTechCards()}
         </div>
         <NavLink to="/service" className="flex justify-center">

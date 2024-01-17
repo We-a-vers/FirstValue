@@ -70,7 +70,7 @@ const Product = () => {
 
     return (
       <motion.div
-        className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+        className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center"
         variants={backdropVariants}
         initial="hidden"
         animate="visible"
@@ -78,11 +78,11 @@ const Product = () => {
         onClick={() => closeModal()}
       >
         <motion.div
-          className="w-[70%]"
+          className="w-[50%] tablet:w-[60%] desktop:w-[25%] overflow-y-auto overflow-hidden rounded-lg"
           onClick={(e) => e.stopPropagation()}
           variants={modalVariants}
         >
-          <img src={image} alt="Modal" className="w-full h-auto" />
+          <img src={image} alt="Modal" className="w-full object-cover" />
         </motion.div>
       </motion.div>
     );
@@ -119,28 +119,32 @@ const Product = () => {
 
   const renderGallery = () => {
     return (
-      <div className="flex flex-col gap-4 desktop:flex-row mt-5">
+      <div className="flex flex-col gap-4 desktop:justify-between desktop:flex-row mt-5 max-h-[600px]">
         {/* Main image placeholder that spans the full width */}
-        <img
-          src={product.photos[0]}
-          alt="Selected"
-          className="w-full h-auto"
-          onClick={() => openModal(product.photos[0])}
-        />
+        <div className="rounded-lg overflow-hidden w-full bg-gray-500">
+          <img
+            src={product.photos[0]}
+            alt="Selected"
+            className="object-cover w-full h-full hover:opacity-70 cursor-pointer"
+            onClick={() => openModal(product.photos[0])}
+          />
+        </div>
 
         {/* Product placeholders */}
         <div className="w-full desktop:w-1/3 flex flex-row desktop:flex-col justify-between">
           {product.photos.slice(1).map((image, index) => {
             return (
-              <img
-                key={index}
-                src={image}
-                alt={`Product ${index + 1}`}
-                onClick={() => {
-                  openModal(image);
-                }}
-                className="w-[30%] h-auto desktop:w-auto desktop:h-[30%]"
-              />
+              <div className="rounded-lg overflow-hidden bg-gray-500 w-[30%] h-12 tablet:h-24 desktop:h-[30%] desktop:w-full">
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Product ${index + 1}`}
+                  onClick={() => {
+                    openModal(image);
+                  }}
+                  className="object-cover h-full w-full hover:opacity-70 cursor-pointer"
+                />
+              </div>
             );
           })}
         </div>

@@ -14,22 +14,22 @@ import Data1 from '../../assets/service/data_1.png';
 import Data2 from '../../assets/service/data_2.png';
 import Data3 from '../../assets/service/data_3.png';
 import Data4 from '../../assets/service/data_4.png';
-import LightBox1 from '../../assets/service/lightbox_1.png';
-import LightBox2 from '../../assets/service/lightbox_2.png';
+import LightBox1 from '../../assets/service/lightbox_1.jpg';
+import LightBox2 from '../../assets/service/lightbox_2.jpg';
 import LightBox3 from '../../assets/service/lightbox_3.png';
-import LightBox4 from '../../assets/service/lightbox_4.png';
-import Remodel1 from '../../assets/service/remodel_1.png';
+import LightBox4 from '../../assets/service/lightbox_4.jpg';
+import Remodel1 from '../../assets/service/remodel_1.jpg';
 import Remodel2 from '../../assets/service/remodel_2.png';
 import Remodel3 from '../../assets/service/remodel_3.png';
 import Remodel4 from '../../assets/service/remodel_4.png';
 import System1 from '../../assets/service/system_1.png';
 import System2 from '../../assets/service/system_2.png';
 import System3 from '../../assets/service/system_3.png';
-import System4 from '../../assets/service/system_4.png';
-import DryIce1 from '../../assets/service/dryice_1.png';
-import DryIce2 from '../../assets/service/dryice_2.png';
-import DryIce3 from '../../assets/service/dryice_3.png';
-import DryIce4 from '../../assets/service/dryice_4.png';
+import System4 from '../../assets/service/system_4.jpg';
+import DryIce1 from '../../assets/service/dryice_1.jpg';
+import DryIce2 from '../../assets/service/dryice_2.jpg';
+import DryIce3 from '../../assets/service/dryice_3.jpg';
+import DryIce4 from '../../assets/service/dryice_4.jpg';
 
 export const products = [
   {
