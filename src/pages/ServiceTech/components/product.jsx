@@ -134,9 +134,11 @@ const Product = () => {
         <div className="w-full desktop:w-1/3 flex flex-row desktop:flex-col justify-between">
           {product.photos.slice(1).map((image, index) => {
             return (
-              <div className="rounded-lg overflow-hidden bg-gray-500 w-[30%] h-12 tablet:h-24 desktop:h-[30%] desktop:w-full">
+              <div
+                key={index}
+                className="rounded-lg overflow-hidden bg-gray-500 w-[30%] h-12 tablet:h-24 desktop:h-[30%] desktop:w-full"
+              >
                 <img
-                  key={index}
                   src={image}
                   alt={`Product ${index + 1}`}
                   onClick={() => {

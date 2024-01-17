@@ -3,7 +3,6 @@ import IdeaImg from '../../assets/home/idea.svg';
 import DealImg from '../../assets/home/deal.svg';
 import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
-import ServiceTechImg from '../../assets/home/placeholder.png';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { NavbarContext } from '../../components/Navbar.jsx';
