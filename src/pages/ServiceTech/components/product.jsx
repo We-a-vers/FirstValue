@@ -218,7 +218,7 @@ const Product = () => {
 
         {/* Product Details */}
         {product.details && (
-          <div className="flex flex-col gap-2 w-full p-4 rounded-lg border-2 mt-5">
+          <div className="bg-neutral-50 flex flex-col gap-2 w-full p-4 rounded-lg mt-5">
             <div className="text-sm desktop:text-lg font-medium font-chi-sans">
               詳細資訊
             </div>

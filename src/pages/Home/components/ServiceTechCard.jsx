@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const ServiceTechCard = ({ image, title, description }) => {
   return (
-    <div className="flex flex-col justify-center items-center w-[304px] h-full p-[30px] gap-2 tablet:gap-5 desktop:gap-10bg-white shadow-service-tech-card-border rounded-[10px] border border-solid border-service-tech-card-border-color tablet:w-[334px] desktop:w-[550px] desktop:p-[40px] ">
+    <div className="bg-white flex flex-col justify-center items-center w-[304px] h-full p-[30px] gap-2 tablet:gap-5 desktop:gap-10bg-white shadow-service-tech-card-border rounded-[10px] border border-solid border-service-tech-card-border-color tablet:w-[334px] desktop:w-[550px] desktop:p-[40px] ">
       <div className="rounded-lg">
         <img
           className="object-cover rounded-lg"
