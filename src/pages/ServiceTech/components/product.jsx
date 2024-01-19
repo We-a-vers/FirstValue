@@ -121,11 +121,11 @@ const Product = () => {
     return (
       <div className="flex flex-col gap-4 desktop:justify-between desktop:flex-row mt-5 max-h-[600px]">
         {/* Main image placeholder that spans the full width */}
-        <div className="rounded-lg overflow-hidden w-full bg-gray-500">
+        <div className="rounded-lg overflow-hidden w-full ">
           <img
             src={product.photos[0]}
             alt="Selected"
-            className="object-cover w-full h-full hover:opacity-70 cursor-pointer"
+            className="object-cover w-full h-full cursor-pointer"
             onClick={() => openModal(product.photos[0])}
           />
         </div>
@@ -136,7 +136,7 @@ const Product = () => {
             return (
               <div
                 key={index}
-                className="rounded-lg overflow-hidden bg-gray-500 w-[30%] h-12 tablet:h-24 desktop:h-[30%] desktop:w-full"
+                className="rounded-lg overflow-hidden w-[30%] h-12 tablet:h-24 desktop:h-[30%] desktop:w-full"
               >
                 <img
                   src={image}
@@ -144,7 +144,7 @@ const Product = () => {
                   onClick={() => {
                     openModal(image);
                   }}
-                  className="object-cover h-full w-full hover:opacity-70 cursor-pointer"
+                  className="object-cover h-full w-full cursor-pointer"
                 />
               </div>
             );

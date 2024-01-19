@@ -37,12 +37,12 @@ const About = () => {
         </div>
         <div
           className="text-[28px] tablet:text-[38px] desktop:text-[64px] font-medium font-chi-sans
-                        bg-gradient-to-l from-blue-950 to-blue-300 
+                        bg-gradient-to-l from-blue-950  to-blue-300 
                         bg-clip-text text-transparent"
         >
           鴻日興科技
         </div>
-        <div className="text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
+        <div className="text-natural-color-black text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
           滿足客戶的製程需求的同時，也努力將技術做現地化以利長久的技術運作。
         </div>
       </header>
@@ -53,7 +53,7 @@ const About = () => {
           企業願景
         </div>
 
-        <div className="text-justify text-zinc-800 text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
+        <div className="text-justify text-natural-color-black text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
           No.1 is “First Value”“
           <span className="text-foundation-blue-normal">價值第一</span>
           ”是我們對公司成立時的願景，以思考如何創造價值給予客戶的出發點，來努力達成從材料/製造/服務的整個循環的最佳方案。一群半導體和平板顯示器的超過20年以上經驗做玻璃、藍寶石、矽晶片的ODM＆OEM廠微加工服務團隊。設計零件，治具，自動化設備，並與在世界潛在的設備製造商技術合作，為客戶思考優異的主意，良好的
@@ -72,7 +72,7 @@ const About = () => {
           企業歷史
         </div>
 
-        <div className="text-justify text-zinc-800 text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
+        <div className="text-justify text-natural-color-black text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
           鴻日興科技主要是做開發面板/LED/半導體測試治具及UV固化點膠應用，開發及日本加工技術的塗布/Clean
           Roller,跟代理國外設備，以滿足客戶的製程需求，同時也努力將技術做現地化以利長久的技術運作。
         </div>
