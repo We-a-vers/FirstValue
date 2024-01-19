@@ -1,9 +1,15 @@
 import useScreenSize from './hooks/useScreenSize';
+import createClient from '../client';
 import { useEffect, useState } from 'react';
 
 const Footer = () => {
   const screenSize = useScreenSize();
   const [deviceVersion, setDeviceVersion] = useState('');
+  const [footerData, setFooterData] = useState({
+    address: '',
+    email: '',
+    phone: '',
+  });
 
   useEffect(() => {
     if (screenSize.width < 768) {
@@ -12,6 +18,19 @@ const Footer = () => {
       setDeviceVersion('notmobile');
     }
   }, [screenSize]);
+
+  useEffect(() => {
+    const query = `*[_type == "footer"]`;
+
+    createClient
+      .fetch(query)
+      .then((data) => {
+        if (data && data.length > 0) {
+          setFooterData(data[0]);
+        }
+      })
+      .catch(console.error);
+  }, []);
 
   const renderFooter = () => {
     switch (deviceVersion) {
@@ -27,7 +46,7 @@ const Footer = () => {
                   公司地址
                 </div>
                 <div className="font-chi-serif text-[#40464D] text-xs font-semibold">
-                  台南市新市區豐華里中心路6號2樓
+                  {footerData && footerData.address}
                 </div>
               </div>
 
@@ -36,7 +55,7 @@ const Footer = () => {
                   電子郵件
                 </div>
                 <div className=" font-chi-serif text-[#40464D] text-xs font-semibold">
-                  brin.huang@gmail.com
+                  {footerData && footerData.email}
                 </div>
               </div>
 
@@ -45,7 +64,7 @@ const Footer = () => {
                   聯絡電話
                 </div>
                 <div className="font-chi-serif text-[#40464D] text-xs font-semibold">
-                  +886 906 082 606
+                  {footerData && footerData.phone}
                 </div>
               </div>
             </div>
@@ -74,7 +93,7 @@ const Footer = () => {
                   公司地址
                 </div>
                 <div className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal">
-                  台南市新市區豐華里中心路6號2樓
+                  {footerData && footerData.address}
                 </div>
               </div>
 
@@ -83,7 +102,7 @@ const Footer = () => {
                   電子郵件
                 </div>
                 <div className=" font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal">
-                  brin.huang@gmail.com
+                  {footerData && footerData.email}
                 </div>
               </div>
 
@@ -92,7 +111,7 @@ const Footer = () => {
                   聯絡電話
                 </div>
                 <div className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal ">
-                  +886 906 082 606
+                  {footerData && footerData.phone}
                 </div>
               </div>
             </div>

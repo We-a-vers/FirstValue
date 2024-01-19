@@ -6,7 +6,7 @@ const ValueCard = ({ icon, word }) => {
       <div>
         <img src={icon} alt="value icon"></img>
       </div>
-      <div className="font-chi-sans text-md tablet:text-xs self-center desktop:text-2xl text-justify font-normal text-black">
+      <div className="font-chi-sans tablet:text-xs self-center desktop:text-2xl text-justify font-normal text-black">
         {word}
       </div>
     </div>
