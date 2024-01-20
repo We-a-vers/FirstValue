@@ -6,60 +6,78 @@ import ServiceTechCard from './components/ServiceTechCard';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { NavbarContext } from '../../components/Navbar.jsx';
-import { products } from '../../components/data/products.jsx';
+import createClient from '../../client.js';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import imageUrlBuilder from '@sanity/image-url';
 
-const valuedata = [
-  {
-    icon: ValueImg,
-    description:
-      '我們以思考如何創造價值給予客戶的出發點來努力達成從材料製造/服務的整個循環的最佳方案。',
-  },
-  {
-    icon: IdeaImg,
-    description:
-      '設計零件，治具，自動化設備，並與在世界潛在的設備製造商技術合作，為客戶思考優異的主意，良好的創新解決方案。',
-  },
-  {
-    icon: DealImg,
-    description:
-      '我們願意以勇敢冒險家的精神開發出新的解決方案進入市場和產品，並且能提供信心和保證來達成彼此的承諾。',
-  },
-];
+const builder = imageUrlBuilder(createClient);
 
-const renderCards = () => {
-  return valuedata.map((card) => (
-    <div key={card.description}>
-      <ValueCard icon={card.icon} word={card.description} />
-    </div>
-  ));
-};
+function urlFor(source) {
+  return builder.image(source);
+}
 
-const renderServiceTechCards = () => {
-  return products.slice(0, 2).map((product, index) => (
-    <div key={index}>
-      <ServiceTechCard
-        image={product.photos[0]}
-        title={product.name}
-        description={product.description}
-      />
-    </div>
-  ));
-};
+const icons = [ValueImg, IdeaImg, DealImg];
 
 const Home = () => {
   const [, setSelectedItem] = useContext(NavbarContext);
+  const [headerData, setHeaderData] = useState({
+    headerText: '',
+    slogan: '',
+    description: '',
+  });
+  const [valueCards, setValueCards] = useState([]);
+  const [techData, setTechData] = useState({
+    description: '',
+    productCards: [],
+  });
+
+  useEffect(() => {
+    const query = `*[_type == "home"]`;
+
+    createClient
+      .fetch(query)
+      .then((data) => {
+        if (data && data.length > 0) {
+          setHeaderData(data[0].homeHeader);
+          setValueCards(data[0].valueCards);
+          setTechData(data[0].techServiceSection);
+        }
+      })
+      .catch(console.error);
+  }, []);
+
+  const renderCards = () => {
+    return valueCards.map((card, index) => (
+      <div key={index}>
+        <ValueCard icon={icons[index]} word={card.description} />
+      </div>
+    ));
+  };
+
+  const renderServiceTechCards = () => {
+    return techData.productCards.map((product, index) => (
+      <div key={index}>
+        <ServiceTechCard
+          image={urlFor(product.image).url()}
+          title={product.title}
+          description={product.description}
+        />
+      </div>
+    ));
+  };
 
   return (
     <div>
       <div className="flex flex-col justify-center items-center py-20 tablet:py-24 desktop:py-40 gap-2 tablet:gap-6 desktop:gap-3">
         <div className="text-[34px] tablet:text-5xl desktop:text-[80px] text-center font-normal font-chi-sans bg-gradient-to-l from-blue-950 to-blue-300 bg-clip-text text-transparent">
-          價值 創新 承諾
+          {headerData && headerData.headerText}
         </div>
         <div className="text-natural-color-black text-center text-base tablet:text-xl desktop:text-4xl font-medium font-chi-sans desktop:mt-7 leading-normal">
-          經驗的累積是為了追求完美 知識的累積是為了追求創新
+          {headerData && headerData.slogan}
         </div>
         <div className="text-natural-color-gray text-center text-xs tablet:text-sm desktop:text-2xl font-normal font-chi-sans mt-[14px]">
-          我們是擁有半導體、平板顯示器、藍寶石和矽晶片微加工經驗的ODM＆OEM廠。我們的團隊專注於設計零件、治具、自動化設備，並與全球領先的設備製造商合作，提供技術解決方案
+          {headerData && headerData.description}
         </div>
         <NavLink
           to="About"
@@ -83,12 +101,10 @@ const Home = () => {
       <div className="flex flex-col py-10 tablet:py-14 desktop:py-52">
         <div className="flex flex-col gap-3 desktop:gap-[32px]">
           <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
-            技術＆服務
+            技術 & 服務
           </div>
           <div className="flex text-zinc-800 text-[13px] tablet:text-lg desktop:text-2xl font-normal tablet:text-center font-chi-serif leading-[25px]">
-            鴻日興科技主要是做開發面板/LED/半導體測試治具及UV固化點膠應用開發及日本加工技術的塗布/Clean
-            Roller,跟代理國外設備, 以滿足客戶的製程需求,
-            同時也努力將技術做現地化以利長久的技術運作。
+            {techData.description}
           </div>
         </div>
         <div className="flex flex-row mt-11 gap-[30px] tablet:gap-0 tablet:justify-evenly overflow-x-auto no-scrollbar tablet:overflow-x-hidden">

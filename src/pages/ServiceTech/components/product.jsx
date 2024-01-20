@@ -3,15 +3,23 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 import { TbPointFilled } from 'react-icons/tb';
 import { motion, AnimatePresence } from 'framer-motion';
 import useScreenSize from '../../../components/hooks/useScreenSize';
-import { products } from '../../../components/data/products';
+import createClient from '../../../client.js';
+import imageUrlBuilder from '@sanity/image-url';
+
+const builder = imageUrlBuilder(createClient);
+
+function urlFor(source) {
+  return builder.image(source);
+}
 
 const Product = () => {
-  const [product, setProduct] = useState(products[0]);
   const [isOpen, setIsOpen] = useState(false);
   const [isDeskTop, setIsDeskTop] = useState(false);
   const screenSize = useScreenSize();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState(null);
+  const [productsData, setProductsData] = useState([]);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     if (screenSize.width < 1440) {
@@ -20,6 +28,19 @@ const Product = () => {
       setIsDeskTop(true);
     }
   }, [screenSize]);
+
+  useEffect(() => {
+    const query = `*[_type == "service"]`;
+
+    createClient
+      .fetch(query)
+      .then((data) => {
+        // Assuming your service documents have a products array
+        setProductsData(data[0].products);
+        setProduct(data[0].products[0]);
+      })
+      .catch(console.error);
+  }, []);
 
   const menu = {
     initial: {
@@ -48,7 +69,7 @@ const Product = () => {
 
   const openModal = (image) => {
     setIsModalOpen(true);
-    setModalImage(image);
+    setModalImage(urlFor(image).url());
   };
 
   const ImageModal = (image) => {
@@ -99,7 +120,7 @@ const Product = () => {
             variants={menu}
             className="mt-2 w-full overflow-y-auto max-h-30 border bg-white border-gray-500 rounded-xl origin-top font-normal font-chi-sans py-5"
           >
-            {products.map((product, index) => (
+            {productsData.map((product, index) => (
               <li
                 className=" py-3 w-full text-center text-xs tablet:text-lg cursor-pointer hover:bg-gray-100"
                 key={index}
@@ -121,9 +142,9 @@ const Product = () => {
     return (
       <div className="flex flex-col gap-4 desktop:justify-between desktop:flex-row mt-5 max-h-[600px]">
         {/* Main image placeholder that spans the full width */}
-        <div className="rounded-lg overflow-hidden w-full ">
+        <div className="rounded-lg overflow-hidden w-full">
           <img
-            src={product.photos[0]}
+            src={urlFor(product.photos[0]).url()}
             alt="Selected"
             className="object-cover w-full h-full cursor-pointer"
             onClick={() => openModal(product.photos[0])}
@@ -139,7 +160,7 @@ const Product = () => {
                 className="rounded-lg overflow-hidden w-[30%] h-12 tablet:h-24 desktop:h-[30%] desktop:w-full"
               >
                 <img
-                  src={image}
+                  src={urlFor(image).url()}
                   alt={`Product ${index + 1}`}
                   onClick={() => {
                     openModal(image);
@@ -166,9 +187,11 @@ const Product = () => {
             className="bg-white w-full p-3 flex items-center justify-center rounded-xl shadow border border-zinc-200 hover:cursor-pointer"
             onClick={() => setIsOpen((cur) => !cur)}
           >
-            <span className="flex-grow text-center text-xs tablet:text-lg font-normal font-chi-sans">
-              {product.name === '' ? 'Select a Product' : product.name}
-            </span>
+            {product && (
+              <span className="flex-grow text-center text-xs tablet:text-lg font-normal font-chi-sans">
+                {product.name === '' ? 'Select a Product' : product.name}
+              </span>
+            )}
 
             {isOpen ? (
               <>
@@ -184,7 +207,7 @@ const Product = () => {
         </>
       ) : (
         <div className="flex flex-col">
-          {products.map((p, index) => {
+          {productsData.map((p, index) => {
             return (
               <div
                 key={index}
@@ -204,38 +227,40 @@ const Product = () => {
         </div>
       )}
 
-      <div className="mt-8 w-full">
-        {/* Product Title */}
-        <div className="text-[17px] tablet:text-lg desktop:text-[27px] font-normal font-chi-sans text-foundation-blue-normal text-start">
-          {product.name}
-        </div>
-        {/* Product Description */}
-        <div className="text-[11px] tablet:text-sm desktop:text-xl font-normal font-chi-sans text-natural-color-black text-start my-2.5">
-          {product.description}
-        </div>
-
-        {renderGallery()}
-
-        {/* Product Details */}
-        {product.details && (
-          <div className="bg-neutral-50 flex flex-col gap-2 w-full p-4 rounded-lg mt-5">
-            <div className="text-sm desktop:text-lg font-medium font-chi-sans">
-              詳細資訊
-            </div>
-            {product.details.map((detail, index) => {
-              return (
-                <div
-                  className="flex flex-row items-center gap-1 text-[11px] tablet:text-xs desktop:text-lg font-normal font-chi-sans text-natural-color-black"
-                  key={index}
-                >
-                  <TbPointFilled size={10} />
-                  {detail}
-                </div>
-              );
-            })}
+      {product && (
+        <div className="mt-8 w-full">
+          {/* Product Title */}
+          <div className="text-[17px] tablet:text-lg desktop:text-[27px] font-normal font-chi-sans text-foundation-blue-normal text-start">
+            {product.name}
           </div>
-        )}
-      </div>
+          {/* Product Description */}
+          <div className="text-[11px] tablet:text-sm desktop:text-xl font-normal font-chi-sans text-natural-color-black text-start my-2.5">
+            {product.description}
+          </div>
+
+          {renderGallery()}
+
+          {/* Product Details */}
+          {product.details && (
+            <div className="bg-neutral-50 flex flex-col gap-2 w-full p-4 rounded-lg mt-5">
+              <div className="text-sm desktop:text-lg font-medium font-chi-sans">
+                詳細資訊
+              </div>
+              {product.details.map((detail, index) => {
+                return (
+                  <div
+                    className="flex flex-row items-center gap-1 text-[11px] tablet:text-xs desktop:text-lg font-normal font-chi-sans text-natural-color-black"
+                    key={index}
+                  >
+                    <TbPointFilled size={10} />
+                    {detail}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

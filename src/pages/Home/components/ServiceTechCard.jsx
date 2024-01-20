@@ -14,7 +14,7 @@ const ServiceTechCard = ({ image, title, description }) => {
         <div className="font-chi-sans text-sm font-medium text-foundation-blue-normal leading-[110%] tablet:text-lg desktop:text-3xl">
           {title}
         </div>
-        <div className="font-chi-sans text-xs font-normal text-cool-grey-90 leading-none tablet:w-[280px] desktop:w-[500px] desktop:text-xl">
+        <div className="font-chi-sans text-xs font-normal text-foundation-blue-dark leading-none tablet:w-[280px] desktop:w-[500px] tablet:text-sm desktop:text-xl">
           {description}
         </div>
       </div>
