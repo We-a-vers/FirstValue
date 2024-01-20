@@ -69,7 +69,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center py-20 tablet:py-24 desktop:py-40 gap-2 tablet:gap-6 desktop:gap-3">
+      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] bg-[url('/home_background.png')] bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center py-20 tablet:py-24 desktop:py-56 gap-2 tablet:gap-6 desktop:gap-3">
         <div className="text-[34px] tablet:text-5xl desktop:text-[80px] text-center font-normal font-chi-sans bg-gradient-to-l from-blue-950 to-blue-300 bg-clip-text text-transparent">
           {headerData && headerData.headerText}
         </div>
@@ -90,7 +90,7 @@ const Home = () => {
         </NavLink>
       </div>
 
-      <div className="flex flex-col tablet:py-5 desktop:py-20">
+      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col py-10 desktop:py-32">
         <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
           核心價值
         </div>
@@ -98,7 +98,7 @@ const Home = () => {
           {renderCards()}
         </div>
       </div>
-      <div className="flex flex-col py-10 tablet:py-14 desktop:py-52">
+      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col py-10 desktop:py-32">
         <div className="flex flex-col gap-3 desktop:gap-[32px]">
           <div className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-5xl tablet:text-center font-semibold font-chi-serif">
             技術 & 服務

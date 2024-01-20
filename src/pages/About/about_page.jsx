@@ -26,7 +26,7 @@ const About = () => {
 
   return (
     <div className="flex flex-col">
-      <header className="flex flex-col gap-3 tablet:gap-5 py-10 tablet:py-20 desktop:py-28">
+      <header className="bg-[url('/about_background.png')] bg-cover bg-no-repeat bg-top px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col justify-center gap-3 tablet:gap-5 py-20 tablet:py-24 desktop:py-56">
         <div className="text-foundation-blue-normal text-xs font-normal tablet:text-lg desktop:text-2xl font-chi-serif">
           關於我們
         </div>
@@ -43,7 +43,7 @@ const About = () => {
       </header>
 
       {/* background */}
-      <div className="flex flex-col gap-5 py-8 tablet:py-12 desktop:py-20">
+      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col gap-5 py-8 tablet:py-12 desktop:py-20">
         <div className="text-foundation-blue-normal text-xl font-m font-chi-serif tablet:text-lg desktop:text-4xl">
           企業願景
         </div>
@@ -53,7 +53,7 @@ const About = () => {
         </div>
       </div>
       {/* history */}
-      <div className="flex flex-col gap-5 py-16 tablet:py-12 desktop:py-20">
+      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col gap-5 py-16 tablet:py-12 desktop:py-20">
         <div className="text-foundation-blue-normal text-xl font-m font-chi-serif tablet:text-lg desktop:text-4xl">
           企業歷史
         </div>

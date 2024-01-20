@@ -5,8 +5,12 @@ Header;
 const ServiceTech = () => {
   return (
     <div>
-      <Header />
-      <Product />
+      <header className="bg-[url('/service_background.png')] bg-cover bg-no-repeat bg-center px-[36px] tablet:px-[72px] desktop:px-[135px]">
+        <Header />
+      </header>
+      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px]">
+        <Product />
+      </div>
     </div>
   );
 };
