@@ -32,12 +32,12 @@ const About = () => {
         </div>
         <div
           className="text-[28px] tablet:text-[38px] desktop:text-[64px] font-medium font-chi-sans
-                        bg-gradient-to-l from-blue-950 to-blue-300 
+                        bg-gradient-to-l from-blue-950  to-blue-300 
                         bg-clip-text text-transparent"
         >
           鴻日興科技
         </div>
-        <div className="text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
+        <div className="text-natural-color-black text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
           滿足客戶的製程需求的同時，也努力將技術做現地化以利長久的技術運作。
         </div>
       </header>
