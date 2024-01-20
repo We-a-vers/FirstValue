@@ -2,25 +2,28 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'footer',
-  title: 'Footer',
+  title: '頁尾',
   type: 'document',
   fields: [
     defineField({
       name: 'address',
-      title: 'Company Address',
+      title: '公司地址',
       type: 'string',
     }),
     defineField({
       name: 'email',
-      title: 'Company Email Address',
+      title: '公司電子郵件',
       type: 'string',
     }),
     defineField({
       name: 'phone',
-      title: 'Company Phone Number',
+      title: '公司電話號碼',
       type: 'string',
     }),
   ],
+
+  validation: (Rule) => Rule.required().min(1).max(1).error('You must provide exactly 1 data.'),
+
   preview: {
     prepare() {
       return {

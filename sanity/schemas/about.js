@@ -2,18 +2,18 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'about',
-  title: 'About',
+  title: '關於我們',
   type: 'document',
   fields: [
     defineField({
       name: 'goal',
-      title: 'About Company Goal',
+      title: '企業願景',
       type: 'object',
       fields: [
         defineField({
           name: 'goalText',
-          title: 'Goal Text',
-          type: 'string',
+          title: '願景',
+          type: 'text',
           description: 'The main text in the company goal',
         }),
       ],
@@ -31,42 +31,42 @@ export default defineType({
 
     defineField({
       name: 'history',
-      title: 'About Company History',
+      title: '企業歷史',
       type: 'object',
       fields: [
         defineField({
           name: 'historyText',
-          title: 'History Text',
-          type: 'string',
-          description: 'The main text in the company history',
+          title: '歷史',
+          type: 'text',
+          description: 'The main text of the company history',
         }),
 
         defineField({
           name: 'timeline',
-          title: 'History Timeline',
+          title: '歷史時間線',
           type: 'array',
           of: [
             defineField({
               name: 'achievement',
-              title: 'Achievement',
+              title: '成就',
               type: 'object',
               fields: [
                 defineField({
                   name: 'year',
-                  title: 'Achievement Year',
+                  title: '年份',
                   type: 'string',
                   description: 'Year of Achievement',
                 }),
                 defineField({
                   name: 'description',
-                  title: 'Achievement Description',
-                  type: 'string',
+                  title: '說明',
+                  type: 'text',
                   description: 'Description of Achievement',
                 }),
               ],
             }),
           ],
-          description: 'The main text in the company history',
+          description: 'The main text of the company history',
         }),
       ],
       preview: {
@@ -81,6 +81,7 @@ export default defineType({
       },
     }),
   ],
+  validation: (Rule) => Rule.required().min(1).max(1).error('You must provide exactly 1 data.'),
 
   // Optional: You can add a preview configuration for Home if you like
   preview: {

@@ -18,8 +18,8 @@ export default defineType({
         }),
         defineField({
           name: 'description',
-          title: '標頭描敘',
-          type: 'string',
+          title: '描述',
+          type: 'text',
           description: 'The description of the header.',
         }),
       ],
@@ -52,7 +52,7 @@ export default defineType({
             }),
             defineField({
               name: 'description',
-              title: '商品/服務的描敘',
+              title: '商品/服務的描述',
               type: 'string',
             }),
             defineField({
@@ -112,6 +112,8 @@ export default defineType({
       },
     }),
   ],
+
+  validation: (Rule) => Rule.required().min(1).max(1).error('You must provide exactly 1 data.'),
 
   // Optional: You can add a preview configuration for Home if you like
   preview: {

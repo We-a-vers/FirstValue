@@ -2,17 +2,17 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'home',
-  title: 'Home',
+  title: '主頁面',
   type: 'document',
   fields: [
     defineField({
       name: 'homeHeader',
-      title: 'Home Page Header',
+      title: '主頁面標頭',
       type: 'object',
       fields: [
         defineField({
           name: 'headerText',
-          title: 'Header Text',
+          title: '標題',
           type: 'string',
           description: 'The main text in the header',
         }),
@@ -24,7 +24,7 @@ export default defineType({
         }),
         defineField({
           name: 'description',
-          title: 'Description',
+          title: '描述',
           type: 'text',
           description: 'A longer description that elaborates on the header',
         }),
@@ -45,17 +45,17 @@ export default defineType({
 
     defineField({
       name: 'valueCards',
-      title: 'Value Cards',
+      title: '核心價值',
       type: 'array',
       of: [
         defineType({
           name: 'valueCard',
-          title: 'Value Card',
+          title: '核心價值',
           type: 'object',
           fields: [
             defineField({
               name: 'description',
-              title: 'Description',
+              title: '描述',
               type: 'text',
               description: 'Description for the value card',
             }),
@@ -73,28 +73,28 @@ export default defineType({
 
     defineField({
       name: 'techServiceSection',
-      title: 'Tech & Service Section',
+      title: '服務與技術預覽',
       type: 'object',
       fields: [
         defineField({
           name: 'description',
-          title: 'Description',
+          title: '描述',
           type: 'text',
           description: 'Description for the Tech & Service section',
         }),
         defineField({
           name: 'productCards',
-          title: 'Product Cards',
+          title: '服務與技術資訊',
           type: 'array',
           of: [
             defineType({
               name: 'productCard',
-              title: 'Product Card',
+              title: '單項資訊',
               type: 'object',
               fields: [
                 defineField({
                   name: 'image',
-                  title: 'Image',
+                  title: '照片',
                   type: 'image',
                   options: {
                     hotspot: true,
@@ -103,13 +103,13 @@ export default defineType({
                 }),
                 defineField({
                   name: 'title',
-                  title: 'Title',
+                  title: '標題',
                   type: 'string',
                   description: 'Title for the product card',
                 }),
                 defineField({
                   name: 'description',
-                  title: 'Description',
+                  title: '描述',
                   type: 'text',
                   description: 'Description for the product card',
                 }),
@@ -134,6 +134,8 @@ export default defineType({
       },
     }),
   ],
+
+  validation: (Rule) => Rule.required().min(1).max(1).error('You must provide exactly 1 data.'),
 
   // Optional: You can add a preview configuration for Home if you like
   preview: {
