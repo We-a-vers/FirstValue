@@ -22,8 +22,6 @@ export default defineType({
     }),
   ],
 
-  validation: (Rule) => Rule.required().min(1).max(1).error('You must provide exactly 1 data.'),
-
   preview: {
     prepare() {
       return {
