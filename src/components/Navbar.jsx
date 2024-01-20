@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="bg-white font-chi-sans text-foundation-blue-normal py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
+      <div className="bg-white font-chi-sans sticky top-0 z-10 text-foundation-blue-normal py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
         <div className="text-base font-normal tablet:text-lg">
           鴻日興 {isDesktop && '科技 First Value Technology Co'}
         </div>
