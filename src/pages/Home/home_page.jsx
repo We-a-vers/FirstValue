@@ -69,25 +69,28 @@ const Home = () => {
 
   return (
     <div>
-      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] bg-[url('/home_background.png')] bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center py-20 tablet:py-24 desktop:py-56 gap-2 tablet:gap-6 desktop:gap-3">
-        <div className="text-[34px] tablet:text-5xl desktop:text-[80px] text-center font-normal font-chi-sans bg-gradient-to-l from-blue-950 to-blue-300 bg-clip-text text-transparent">
-          {headerData && headerData.headerText}
+      <div className="relative px-[36px] tablet:px-[72px] desktop:px-[135px] bg-[url('/home_background.png')] bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center py-20 tablet:py-24 desktop:py-56 gap-2 tablet:gap-6 desktop:gap-3">
+        <div className="absolute inset-0 bg-white bg-opacity-70" />
+        <div className="relative z-10 ">
+          <div className="text-[34px] tablet:text-5xl desktop:text-[80px] text-center font-normal font-chi-sans bg-gradient-to-l from-blue-950 to-blue-300 bg-clip-text text-transparent">
+            {headerData && headerData.headerText}
+          </div>
+          <div className="text-natural-color-black text-center text-base tablet:text-xl desktop:text-4xl font-medium font-chi-sans desktop:mt-7 leading-normal">
+            {headerData && headerData.slogan}
+          </div>
+          <div className="text-natural-color-gray text-center text-xs tablet:text-sm desktop:text-2xl font-normal font-chi-sans mt-[14px]">
+            {headerData && headerData.description}
+          </div>
+          <NavLink
+            to="About"
+            className={'w-full flex justify-center'}
+            onClick={() => setSelectedItem('About')}
+          >
+            <button className="mt-5 desktop:mt-12 bg-foundation-blue-normal rounded-[20px] text-white font-sans text-sm desktop:text-2xl font-medium py-[14px] tablet:py-3 w-full tablet:w-auto tablet:px-10 desktop:px-16">
+              關於我們
+            </button>
+          </NavLink>
         </div>
-        <div className="text-natural-color-black text-center text-base tablet:text-xl desktop:text-4xl font-medium font-chi-sans desktop:mt-7 leading-normal">
-          {headerData && headerData.slogan}
-        </div>
-        <div className="text-natural-color-gray text-center text-xs tablet:text-sm desktop:text-2xl font-normal font-chi-sans mt-[14px]">
-          {headerData && headerData.description}
-        </div>
-        <NavLink
-          to="About"
-          className={'w-full flex justify-center'}
-          onClick={() => setSelectedItem('About')}
-        >
-          <button className="mt-5 desktop:mt-12 bg-foundation-blue-normal rounded-[20px] text-white font-sans text-sm desktop:text-2xl font-medium py-[14px] tablet:py-3 w-full tablet:w-auto tablet:px-10 desktop:px-16">
-            關於我們
-          </button>
-        </NavLink>
       </div>
 
       <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col py-10 desktop:py-32">

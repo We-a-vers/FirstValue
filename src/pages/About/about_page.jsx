@@ -26,19 +26,22 @@ const About = () => {
 
   return (
     <div className="flex flex-col">
-      <header className="bg-[url('/about_background.png')] bg-cover bg-no-repeat bg-top px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col justify-center gap-3 tablet:gap-5 py-20 tablet:py-24 desktop:py-56">
-        <div className="text-foundation-blue-normal text-xs font-normal tablet:text-lg desktop:text-2xl font-chi-serif">
-          關於我們
-        </div>
-        <div
-          className="text-[28px] tablet:text-[38px] desktop:text-[64px] font-medium font-chi-sans
+      <header className="relative bg-[url('/about_background.png')] bg-cover bg-no-repeat bg-top px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col justify-center gap-3 tablet:gap-5 py-20 tablet:py-24 desktop:py-56">
+        <div className="absolute inset-0 bg-white bg-opacity-70" />
+        <div className="relative z-10">
+          <div className="text-foundation-blue-normal text-xs font-normal tablet:text-lg desktop:text-2xl font-chi-serif">
+            關於我們
+          </div>
+          <div
+            className="text-[28px] tablet:text-[38px] desktop:text-[64px] font-medium font-chi-sans
                         bg-gradient-to-l from-blue-950  to-blue-300 
                         bg-clip-text text-transparent"
-        >
-          鴻日興科技
-        </div>
-        <div className="text-natural-color-black text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
-          滿足客戶的製程需求的同時，也努力將技術做現地化以利長久的技術運作。
+          >
+            鴻日興科技
+          </div>
+          <div className="text-natural-color-black text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
+            滿足客戶的製程需求的同時，也努力將技術做現地化以利長久的技術運作。
+          </div>
         </div>
       </header>
 
