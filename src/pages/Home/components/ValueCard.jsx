@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types';
 
-const ValueCard = ({ icon, word }) => {
+const ValueCard = ({ title, description }) => {
   return (
-    <div className="flex flex-col min-h-48 justify-evenly tablet:max-w-[300px] tablet:h-[181.99px] desktop:max-w-[380px] desktop:h-[260px] py-6 tablet:py-6 px-4 tablet:px-4 gap-3 bg-white rounded-lg">
-      <div>
-        <img src={icon} alt="value icon"></img>
-      </div>
-      <div className="font-chi-sans tablet:text-xs self-center desktop:text-2xl text-justify font-normal text-black">
-        {word}
+    <div className="flex items-center justify-center">
+      <div className="bg-white rounded-full h-64 w-64 desktop:w-80 desktop:h-80 p-6 shadow-lg flex items-center justify-center flex-col">
+        <h3 className="text-foundation-blue-normal text-2xl tablet:text-3xl desktop:text-4xl font-semibold font-chi-serif">
+          {title ? title : 'Title'}
+        </h3>
+        <p className="text-sm text-black mt-4 text-center font-chi-sans">
+          {description}
+        </p>
       </div>
     </div>
   );
 };
 
 ValueCard.propTypes = {
-  icon: PropTypes.any.isRequired,
-  word: PropTypes.string.isRequired,
+  title: PropTypes.any.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default ValueCard;

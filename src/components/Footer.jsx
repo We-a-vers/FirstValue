@@ -36,86 +36,98 @@ const Footer = () => {
     switch (deviceVersion) {
       case 'mobile':
         return (
-          <div className="flex flex-col gap-4">
-            <div className="text-xl text-natural-color-black font-bold font-chi-sans">
+          <section className="flex flex-col gap-4">
+            <h2 className="text-xl text-natural-color-black font-bold font-chi-sans">
               鴻日興科技有限公司
-            </div>
-            <div className=" flex flex-col gap-4">
+            </h2>
+            <address className="flex flex-col gap-4">
               <div className="flex flex-col gap-2">
-                <div className="font-chi-sans text-foundation-blue-normal text-xs font-medium">
+                <h3 className="font-chi-sans text-foundation-blue-normal text-xs font-medium">
                   公司地址
-                </div>
-                <div className="font-chi-serif text-[#40464D] text-xs font-semibold">
+                </h3>
+                <p className="font-chi-serif text-[#40464D] text-xs font-semibold">
                   {footerData && footerData.address}
-                </div>
+                </p>
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="font-chi-sans text-xs text-foundation-blue-normal font-medium">
+                <h3 className="font-chi-sans text-xs text-foundation-blue-normal font-medium">
                   電子郵件
-                </div>
-                <div className=" font-chi-serif text-[#40464D] text-xs font-semibold">
+                </h3>
+                <a
+                  className="font-chi-serif text-[#40464D] text-xs font-semibold"
+                  href={`mailto:${footerData && footerData.email}`}
+                >
                   {footerData && footerData.email}
-                </div>
+                </a>
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="font-chi-sans text-foundation-blue-normal text-xs font-medium">
+                <h3 className="font-chi-sans text-foundation-blue-normal text-xs font-medium">
                   聯絡電話
-                </div>
-                <div className="font-chi-serif text-[#40464D] text-xs font-semibold">
+                </h3>
+                <a
+                  className="font-chi-serif text-[#40464D] text-xs font-semibold"
+                  href={`tel:${footerData && footerData.phone}`}
+                >
                   {footerData && footerData.phone}
-                </div>
+                </a>
               </div>
-            </div>
+            </address>
 
-            <div className="font-chi-serif text-[9px] text-foundation-blue-dark">
+            <small className="font-chi-serif text-[9px] text-foundation-blue-dark">
               ® First Value Technology Co. All right reserved
-            </div>
-          </div>
+            </small>
+          </section>
         );
 
       default:
         return (
-          <div className="flex flex-row items-center justify-between">
+          <section className="flex flex-row items-center justify-between">
             <div className="flex flex-col gap-4 desktop:gap-3 text-foundation-blue-dark">
-              <div className="text-xl font-medium font-chi-sans">
+              <h2 className="text-xl font-medium font-chi-sans">
                 鴻日興科技有限公司
-              </div>
-              <div className="font-chi-serif text-[9px] desktop:text-xs">
+              </h2>
+              <small className="font-chi-serif text-[9px] desktop:text-xs">
                 ® First Value Technology Co. All right reserved
-              </div>
+              </small>
             </div>
 
-            <div className=" flex flex-col gap-4 desktop:gap-10 desktop:flex-row">
+            <address className="flex flex-col gap-4 desktop:gap-10 desktop:flex-row">
               <div className="flex flex-col gap-2">
-                <div className="font-chi-sans text-foundation-blue-normal desktop:text-lg text-xs font-medium">
+                <h3 className="font-chi-sans text-foundation-blue-normal desktop:text-lg text-xs font-medium">
                   公司地址
-                </div>
-                <div className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal">
+                </h3>
+                <p className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal">
                   {footerData && footerData.address}
-                </div>
+                </p>
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="font-chi-sans text-xs text-foundation-blue-normal desktop:text-lg font-medium">
+                <h3 className="font-chi-sans text-xs text-foundation-blue-normal desktop:text-lg font-medium">
                   電子郵件
-                </div>
-                <div className=" font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal">
+                </h3>
+                <a
+                  className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal"
+                  href={`mailto:${footerData && footerData.email}`}
+                >
                   {footerData && footerData.email}
-                </div>
+                </a>
               </div>
 
               <div className="flex flex-col gap-2">
-                <div className="font-chi-sans text-foundation-blue-normal desktop:text-lg text-xs font-medium">
+                <h3 className="font-chi-sans text-foundation-blue-normal desktop:text-lg text-xs font-medium">
                   聯絡電話
-                </div>
-                <div className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal ">
+                </h3>
+                <a
+                  className="font-chi-serif text-zinc-700 desktop:text-base text-xs font-normal"
+                  href={`tel:${footerData && footerData.phone}`}
+                >
                   {footerData && footerData.phone}
-                </div>
+                </a>
               </div>
-            </div>
-          </div>
+            </address>
+          </section>
         );
     }
   };

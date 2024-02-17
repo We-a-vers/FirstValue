@@ -126,7 +126,7 @@ const Navbar = () => {
         </div>
       ) : (
         <>
-          <main className="bg-[url('/fvt_background.png')] bg-cover">
+          <main className="bg-[#FAFAFA]">
             <NavbarContext.Provider value={[selectedItem, setSelectedItem]}>
               <Outlet />
             </NavbarContext.Provider>

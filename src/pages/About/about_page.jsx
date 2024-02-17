@@ -25,53 +25,54 @@ const About = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
-      <header className="relative bg-[url('/about_background.png')] bg-cover bg-no-repeat bg-top px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col justify-center gap-3 tablet:gap-5 py-20 tablet:py-24 desktop:py-56">
-        <div className="absolute inset-0 bg-white bg-opacity-70" />
-        <div className="relative z-10">
-          <div className="text-foundation-blue-normal text-xs font-normal tablet:text-lg desktop:text-2xl font-chi-serif">
+    <main className="flex flex-col">
+      <header className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
+        <img
+          src="/about_background.png"
+          alt="home image"
+          className="absolute w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-[#FAFAFA] to-white opacity-75" />
+        <div className="relative z-10 w-full flex flex-col gap-5 px-[36px] tablet:px-[72px] desktop:px-[135px]">
+          <h1 className="text-foundation-blue-normal text-xs font-normal tablet:text-lg desktop:text-2xl font-chi-serif">
             關於我們
-          </div>
-          <div
-            className="text-[28px] tablet:text-[38px] desktop:text-[64px] font-medium font-chi-sans
-                        bg-gradient-to-l from-blue-950  to-blue-300 
-                        bg-clip-text text-transparent"
-          >
+          </h1>
+          <h2 className="text-[28px] tablet:text-[38px] desktop:text-[64px] font-medium font-chi-sans text-foundation-blue-normal leading-none">
             鴻日興科技
-          </div>
-          <div className="text-natural-color-black text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
+          </h2>
+          <p className="text-natural-color-black text-xs tablet:text-lg desktop:text-[28px] font-normal font-chi-sans leading-tight">
             滿足客戶的製程需求的同時，也努力將技術做現地化以利長久的技術運作。
-          </div>
+          </p>
         </div>
       </header>
 
       {/* background */}
-      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col gap-5 py-8 tablet:py-12 desktop:py-20">
-        <div className="text-foundation-blue-normal text-xl font-m font-chi-serif tablet:text-lg desktop:text-4xl">
+      <section className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col gap-5 py-8 tablet:py-12 desktop:py-20">
+        <h2 className="text-foundation-blue-normal text-xl font-m font-chi-serif tablet:text-lg desktop:text-4xl">
           企業願景
-        </div>
+        </h2>
 
-        <div className="text-justify text-foundation-blue-dark text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
+        <p className="text-justify text-foundation-blue-dark text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
           {aboutGoal && aboutGoal.goalText}
-        </div>
-      </div>
+        </p>
+      </section>
       {/* history */}
-      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col gap-5 py-16 tablet:py-12 desktop:py-20">
-        <div className="text-foundation-blue-normal text-xl font-m font-chi-serif tablet:text-lg desktop:text-4xl">
+      <section className="px-[36px] tablet:px-[72px] desktop:px-[135px] flex flex-col gap-5 py-16 tablet:py-12 desktop:py-20">
+        <h2 className="text-foundation-blue-normal text-xl font-m font-chi-serif tablet:text-lg desktop:text-4xl">
           企業歷史
-        </div>
+        </h2>
 
-        <div className="text-justify text-zinc-800 text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
+        <p className="text-justify text-zinc-800 text-[13px] font-normal font-chi-sans leading-[18px] tracking-widest tablet:leading-[25px] desktop:leading-10 desktop:text-[22px]">
           {historyData.historyText}
-        </div>
+        </p>
 
         {historyData.timeline && (
           <div className="mt-5 tablet:mt-8 desktop:mt-10">
             <TimeLine data={historyData.timeline} />
           </div>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

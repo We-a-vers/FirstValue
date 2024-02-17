@@ -54,6 +54,12 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
+              name: 'title',
+              title: '標題',
+              type: 'text',
+              description: 'Title for the value card',
+            }),
+            defineField({
               name: 'description',
               title: '描述',
               type: 'text',
