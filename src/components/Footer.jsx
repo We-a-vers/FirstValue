@@ -40,7 +40,7 @@ const Footer = () => {
             <h2 className="text-xl text-natural-color-black font-bold font-chi-sans">
               鴻日興科技有限公司
             </h2>
-            <address className="flex flex-col gap-4">
+            <address className="flex flex-col gap-4 not-italic">
               <div className="flex flex-col gap-2">
                 <h3 className="font-chi-sans text-foundation-blue-normal text-xs font-medium">
                   公司地址
@@ -93,7 +93,7 @@ const Footer = () => {
               </small>
             </div>
 
-            <address className="flex flex-col gap-4 desktop:gap-10 desktop:flex-row">
+            <address className="flex flex-col gap-4 desktop:gap-10 desktop:flex-row not-italic">
               <div className="flex flex-col gap-2">
                 <h3 className="font-chi-sans text-foundation-blue-normal desktop:text-lg text-xs font-medium">
                   公司地址
