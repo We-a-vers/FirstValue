@@ -38,8 +38,8 @@ const Navbar = () => {
   }, [screenSize.width, location.pathname]);
 
   return (
-    <header>
-      <nav className="bg-white font-chi-sans sticky top-0 z-20 text-foundation-blue-normal py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
+    <header className="relative">
+      <nav className="bg-transparent font-chi-sans absolute w-full z-20 text-foundation-blue-dark py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
         <h1 className="text-base font-normal tablet:text-lg">
           鴻日興 {isDesktop && '科技 First Value Technology Co'}
         </h1>
@@ -102,7 +102,7 @@ const Navbar = () => {
       </nav>
 
       {isOpen ? (
-        <ul className="text-center mt-8 flex flex-col gap-16 font-chi-sans text-2xl tablet:text-3xl text-foundation-blue-normal">
+        <ul className="text-center mt-32 absolute w-full flex flex-col gap-16 font-chi-sans text-2xl tablet:text-3xl text-foundation-blue-normal">
           <NavLink to="/">
             <li onClick={() => setIsOpen(false)}>主頁面</li>
           </NavLink>
