@@ -113,7 +113,7 @@ const Product = () => {
     return (
       <AnimatePresence>
         {isOpen && (
-          <motion.ul
+          <motion.nav
             animate="open"
             initial="initial"
             exit="close"
@@ -132,7 +132,7 @@ const Product = () => {
                 {product.name}
               </li>
             ))}
-          </motion.ul>
+          </motion.nav>
         )}
       </AnimatePresence>
     );
@@ -140,7 +140,7 @@ const Product = () => {
 
   const renderGallery = () => {
     return (
-      <div className="flex flex-col gap-4 desktop:justify-between desktop:flex-row mt-5 max-h-[600px]">
+      <section className="flex flex-col gap-4 desktop:justify-between desktop:flex-row mt-5 max-h-[600px]">
         {/* Main image placeholder that spans the full width */}
         <div className="rounded-lg overflow-hidden w-full">
           <img
@@ -171,12 +171,12 @@ const Product = () => {
             );
           })}
         </div>
-      </div>
+      </section>
     );
   };
 
   return (
-    <div className="flex flex-col py-8 desktop:py-16 desktop:flex-row justify-center items-center desktop:items-start desktop:gap-[65px]">
+    <main className="flex flex-col py-8 desktop:py-16 desktop:flex-row justify-center items-center desktop:items-start desktop:gap-[65px]">
       {/* DropDown */}
 
       {isModalOpen && ImageModal(modalImage)}
@@ -206,7 +206,7 @@ const Product = () => {
           {renderOptions()}
         </>
       ) : (
-        <div className="flex flex-col">
+        <aside className="flex flex-col">
           {productsData.map((p, index) => {
             return (
               <div
@@ -224,44 +224,44 @@ const Product = () => {
               </div>
             );
           })}
-        </div>
+        </aside>
       )}
 
       {product && (
-        <div className="mt-8 w-full">
+        <article className="mt-8 w-full">
           {/* Product Title */}
-          <div className="text-[17px] tablet:text-lg desktop:text-[27px] font-normal font-chi-sans text-foundation-blue-normal text-start">
+          <h1 className="text-[17px] tablet:text-lg desktop:text-[27px] font-normal font-chi-sans text-foundation-blue-normal text-start">
             {product.name}
-          </div>
+          </h1>
           {/* Product Description */}
-          <div className="text-[11px] tablet:text-sm desktop:text-xl font-normal font-chi-sans text-natural-color-black text-start my-2.5">
+          <p className="text-[11px] tablet:text-sm desktop:text-xl font-normal font-chi-sans text-natural-color-black text-start my-2.5">
             {product.description}
-          </div>
+          </p>
 
           {renderGallery()}
 
           {/* Product Details */}
           {product.details && (
-            <div className="bg-neutral-50 flex flex-col gap-2 w-full p-4 rounded-lg mt-5">
-              <div className="text-sm desktop:text-lg font-medium font-chi-sans">
+            <section className="bg-neutral-50 flex flex-col gap-2 w-full p-4 rounded-lg mt-5">
+              <h2 className="text-sm desktop:text-lg font-medium font-chi-sans">
                 詳細資訊
-              </div>
+              </h2>
               {product.details.map((detail, index) => {
                 return (
-                  <div
+                  <p
                     className="flex flex-row items-center gap-1 text-[11px] tablet:text-xs desktop:text-lg font-normal font-chi-sans text-natural-color-black"
                     key={index}
                   >
                     <TbPointFilled size={10} />
                     {detail}
-                  </div>
+                  </p>
                 );
               })}
-            </div>
+            </section>
           )}
-        </div>
+        </article>
       )}
-    </div>
+    </main>
   );
 };
 

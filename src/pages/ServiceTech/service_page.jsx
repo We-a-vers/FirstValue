@@ -1,20 +1,24 @@
 import Product from './components/product';
 import Header from './components/Header';
-Header;
 
 const ServiceTech = () => {
   return (
-    <div>
-      <header className="relative bg-[url('/service_background.png')] bg-cover bg-no-repeat bg-center px-[36px] tablet:px-[72px] desktop:px-[135px]">
-        <div className="absolute inset-0 bg-white bg-opacity-70" />
-        <div className="relative z-10">
+    <main>
+      <header className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
+        <img
+          src="/service_background.png"
+          alt="home image"
+          className="absolute w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-[#FAFAFA] to-white opacity-75" />
+        <div className="relative z-10 px-[36px] tablet:px-[72px] desktop:px-[135px]">
           <Header />
         </div>
       </header>
-      <div className="px-[36px] tablet:px-[72px] desktop:px-[135px]">
+      <section className="px-[36px] tablet:px-[72px] desktop:px-[135px]">
         <Product />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

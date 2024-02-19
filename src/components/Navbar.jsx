@@ -38,95 +38,84 @@ const Navbar = () => {
   }, [screenSize.width, location.pathname]);
 
   return (
-    <div>
-      <div className="bg-white font-chi-sans sticky top-0 z-20 text-foundation-blue-normal py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
-        <div className="text-base font-normal tablet:text-lg">
+    <header className="relative">
+      <nav className="bg-transparent font-chi-sans absolute w-full z-20 text-foundation-blue-dark py-3 px-4 flex justify-between items-center desktop:px-32 desktop:py-7 desktop:text-base">
+        <h1 className="text-base font-normal tablet:text-lg">
           鴻日興 {isDesktop && '科技 First Value Technology Co'}
-        </div>
+        </h1>
         <div>
           {isDesktop ? (
-            <div>
-              <ul className="flex flex-row gap-4">
-                <NavLink to="/">
-                  <li
-                    className={`
-                      px-3 py-2
-                      ${
-                        selectedItem === 'Home'
-                          ? 'font-bold border-b border-foundation-blue-normal solid black'
-                          : 'font-normal border-none'
-                      }`}
-                    onClick={() => handleItemClick('Home')}
-                  >
-                    主頁面
-                  </li>
-                </NavLink>
-                <NavLink to="about">
-                  <li
-                    className={`
-                      px-3 py-2 
-                      ${
-                        selectedItem === 'About'
-                          ? 'font-bold border-b border-foundation-blue-normal solid black'
-                          : 'font-normal border-none'
-                      }`}
-                    onClick={() => handleItemClick('About')}
-                  >
-                    關於我們
-                  </li>
-                </NavLink>
-                <NavLink to="service">
-                  <li
-                    className={`
-                      px-3 py-2
-                      ${
-                        selectedItem === 'Service'
-                          ? 'font-bold border-b border-foundation-blue-normal solid black'
-                          : 'font-normal border-none'
-                      }`}
-                    onClick={() => handleItemClick('Service')}
-                  >
-                    技術＆服務
-                  </li>
-                </NavLink>
-              </ul>
-            </div>
+            <ul className="flex flex-row gap-4">
+              <NavLink to="/">
+                <li
+                  className={`px-3 py-2 ${
+                    selectedItem === 'Home'
+                      ? 'font-bold border-b border-foundation-blue-normal solid black'
+                      : 'font-normal border-none'
+                  }`}
+                  onClick={() => handleItemClick('Home')}
+                >
+                  主頁面
+                </li>
+              </NavLink>
+              <NavLink to="about">
+                <li
+                  className={`px-3 py-2 ${
+                    selectedItem === 'About'
+                      ? 'font-bold border-b border-foundation-blue-normal solid black'
+                      : 'font-normal border-none'
+                  }`}
+                  onClick={() => handleItemClick('About')}
+                >
+                  關於我們
+                </li>
+              </NavLink>
+              <NavLink to="service">
+                <li
+                  className={`px-3 py-2 ${
+                    selectedItem === 'Service'
+                      ? 'font-bold border-b border-foundation-blue-normal solid black'
+                      : 'font-normal border-none'
+                  }`}
+                  onClick={() => handleItemClick('Service')}
+                >
+                  技術＆服務
+                </li>
+              </NavLink>
+            </ul>
           ) : (
             <>
               {!isOpen && (
-                <div onClick={() => setIsOpen(true)}>
+                <button onClick={() => setIsOpen(true)}>
                   <img src={Hamburger} className="justify-end" />
-                </div>
+                </button>
               )}
 
               {isOpen && (
-                <div onClick={() => setIsOpen(false)}>
+                <button onClick={() => setIsOpen(false)}>
                   <IoClose style={{ fontSize: '2em' }} />
-                </div>
+                </button>
               )}
             </>
           )}
         </div>
-      </div>
+      </nav>
 
       {isOpen ? (
-        <div>
-          <ul className="text-center mt-8 flex flex-col gap-16 font-chi-sans text-2xl tablet:text-3xl text-foundation-blue-normal">
-            {/* Your list items go here */}
-            <NavLink to="/">
-              <li onClick={() => setIsOpen(false)}>主頁面</li>
-            </NavLink>
-            <NavLink to="about">
-              <li onClick={() => setIsOpen(false)}>關於我們</li>
-            </NavLink>
-            <NavLink to="service">
-              <li onClick={() => setIsOpen(false)}>技術＆服務</li>
-            </NavLink>
-          </ul>
-        </div>
+        <ul className="text-center mt-32 absolute w-full flex flex-col gap-16 font-chi-sans text-2xl tablet:text-3xl text-foundation-blue-normal">
+          <NavLink to="/">
+            <li onClick={() => setIsOpen(false)}>主頁面</li>
+          </NavLink>
+          <NavLink to="about">
+            <li onClick={() => setIsOpen(false)}>關於我們</li>
+          </NavLink>
+          <NavLink to="service">
+            <li onClick={() => setIsOpen(false)}>技術＆服務</li>
+          </NavLink>
+        </ul>
       ) : (
         <>
-          <main className="bg-[url('/fvt_background.png')] bg-cover">
+          <main className="bg-[#FAFAFA]">
             <NavbarContext.Provider value={[selectedItem, setSelectedItem]}>
               <Outlet />
             </NavbarContext.Provider>
@@ -134,7 +123,7 @@ const Navbar = () => {
           <Footer />
         </>
       )}
-    </div>
+    </header>
   );
 };
 
