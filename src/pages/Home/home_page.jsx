@@ -134,14 +134,12 @@ const Home = () => {
           {renderServiceTechCards()}
         </div>
 
-        <button
-          onClick={() => setSelectedItem('Service')}
+        <NavLink
+          to="/service"
           className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium"
         >
-          <NavLink to="/service" className="flex justify-center">
-            瞭解更多
-          </NavLink>
-        </button>
+          瞭解更多
+        </NavLink>
       </section>
     </main>
   );
