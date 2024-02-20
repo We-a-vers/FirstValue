@@ -1,7 +1,11 @@
 import Product from './components/product';
 import Header from './components/Header';
+import { useEffect } from 'react';
 
 const ServiceTech = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main>
       <header className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center">
