@@ -133,14 +133,15 @@ const Home = () => {
         <div className="flex flex-row mt-12 gap-[30px] desktop:justify-evenly overflow-x-auto no-scrollbar">
           {renderServiceTechCards()}
         </div>
-        <NavLink to="/service" className="flex justify-center">
-          <button
-            onClick={() => setSelectedItem('Service')}
-            className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium"
-          >
+
+        <button
+          onClick={() => setSelectedItem('Service')}
+          className="bg-white mx-auto text-xs tablet:text-sm desktop:text-2xl mt-5 tablet:mt-8 desktop:mt-[75px] py-2 px-[25px] tablet:px-10 desktop:px-16 desktop:py-3 border rounded-[20px] text-foundation-blue-normal border-foundation-blue-normal font-chi-sans font-medium"
+        >
+          <NavLink to="/service" className="flex justify-center">
             瞭解更多
-          </button>
-        </NavLink>
+          </NavLink>
+        </button>
       </section>
     </main>
   );

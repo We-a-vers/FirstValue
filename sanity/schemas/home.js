@@ -56,7 +56,7 @@ export default defineType({
             defineField({
               name: 'title',
               title: '標題',
-              type: 'text',
+              type: 'string',
               description: 'Title for the value card',
             }),
             defineField({
@@ -69,7 +69,7 @@ export default defineType({
           // Optional: Preview configuration for valueCard
           preview: {
             select: {
-              title: 'description',
+              title: 'title',
             },
           },
         }),
