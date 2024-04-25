@@ -86,8 +86,12 @@ const Navbar = () => {
           ) : (
             <>
               {!isOpen && (
-                <button onClick={() => setIsOpen(true)}>
-                  <img src={Hamburger} className="justify-end" />
+                <button onClick={() => setIsOpen(true)} type="button">
+                  <img
+                    src={Hamburger}
+                    className="justify-end"
+                    alt="navigation button"
+                  />
                 </button>
               )}
 
