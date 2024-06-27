@@ -1,8 +1,6 @@
 import ValueCard from './components/ValueCard.jsx';
 import ServiceTechCard from './components/ServiceTechCard';
 import { NavLink } from 'react-router-dom';
-import { useContext } from 'react';
-import { NavbarContext } from '../../components/Navbar.jsx';
 import createClient from '../../client.js';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -17,7 +15,6 @@ function urlFor(source) {
 }
 
 const Home = () => {
-  const [, setSelectedItem] = useContext(NavbarContext);
   const [isMobile, setIsMobile] = useState(false);
   const [headerData, setHeaderData] = useState({
     headerText: '',
@@ -104,10 +101,13 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-[#FAFAFA] to-white opacity-75" />
         <div className="relative z-10 flex flex-col desktop:gap-8 mx-5 tablet:mx-16 desktop:mx-32">
-          <h1 className="text-[#19335A] text-center text-base tablet:text-xl desktop:text-5xl font-medium font-chi-sans leading-normal">
+          <h1 className="text-[#19335A] text-left text-base tablet:text-xl desktop:text-5xl font-medium font-chi-sans leading-normal">
             {headerData && headerData.slogan}
           </h1>
-          <h2 className="text-[#19335A] text-center text-xs tablet:text-sm desktop:text-2xl font-normal font-chi-sans mt-[14px]">
+          <h2
+            style={{ whiteSpace: 'pre-line' }}
+            className="text-[#19335A] text-left text-xs tablet:text-sm desktop:text-2xl font-normal font-chi-sans mt-[14px]"
+          >
             {headerData && headerData.description}
           </h2>
         </div>
